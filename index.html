@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Éducation G20 · Systèmes éducatifs, PISA, Nobel, Fields, universités</title>
+<meta name="description" content="Comparaison des systèmes éducatifs des 19 pays du G20 : scores PISA, Olympiades de mathématiques, prix Nobel, médailles Fields, classements d'universités, recherche, vaccins et financement.">
+<meta name="theme-color" content="#1d4ed8">
+<meta property="og:title" content="Atlas Éducation G20">
+<meta property="og:description" content="Qui forme le mieux ses élèves, ses chercheurs et ses prix Nobel ? 19 pays, 24 indicateurs, 32 graphiques.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Ctext x='32' y='43' font-size='32' text-anchor='middle' font-family='Georgia,serif' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f4f5f8; --card:#ffffff; --ink:#0b1220; --ink2:#3f4a5c; --ink3:#6b7686; --ink4:#98a2b3;
+  --line:#e4e7ec; --line2:#d0d5dd; --accent:#1d4ed8; --accent2:#dbe4ff; --accent-ink:#ffffff;
+  --gold:#b7791f; --gold2:#fff4d6; --bar:#b9c6dc; --bar2:#8fa3c4; --ref:#c7ced9;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#4a3aa7; --s8:#e34948;
+  --good:#0b7a3b; --bad:#c0392b; --shadow:0 1px 2px rgba(11,18,32,.05),0 8px 24px -12px rgba(11,18,32,.15);
+  --r:14px; --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif; --disp:"Fraunces","Georgia",serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c1017; --card:#141a24; --ink:#eef2f7; --ink2:#c4ccd8; --ink3:#93a0b3; --ink4:#66748a;
+  --line:#243043; --line2:#2f3d54; --accent:#6d9cff; --accent2:#1a2b52; --accent-ink:#0b1220;
+  --gold:#e3b04b; --gold2:#3a2e12; --bar:#3a4a66; --bar2:#54678a; --ref:#3f4d64;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#2e9e2e; --s7:#9085e9; --s8:#e66767;
+  --good:#4ade80; --bad:#f87171; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;min-width:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+svg{display:block}
+.flag{width:28px;height:18.7px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex:none}
+.flag.lg{width:60px;height:40px;border-radius:6px}
+.flag.sm{width:20px;height:13.3px;border-radius:2px}
+
+/* En-tête */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1280px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.brand .mark{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--disp);font-weight:600;font-size:17px}
+.brand small{display:block;font-weight:500;color:var(--ink3);font-size:11.5px;letter-spacing:.02em}
+.top .sp{flex:1}
+.iconbtn{width:36px;height:36px;border-radius:9px;border:1px solid var(--line2);display:grid;place-items:center;background:var(--card)}
+.iconbtn:hover{border-color:var(--accent)}
+.nav{max-width:1280px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav button{flex:none;padding:10px 12px;font-size:13.5px;font-weight:500;color:var(--ink3);border-bottom:2px solid transparent;white-space:nowrap;border-radius:0}
+.nav button:hover{color:var(--ink)}
+.nav button.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+
+/* Page */
+main{max-width:1280px;margin:0 auto;padding:24px 20px 80px}
+.page{display:none;animation:fade .25s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ph{margin:8px 0 22px}
+.ph .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.ph h1{font-family:var(--disp);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-.02em;margin:6px 0 10px}
+.ph p{max-width:820px;color:var(--ink2);margin:0;font-size:16px}
+h2{font-family:var(--disp);font-weight:500;font-size:24px;letter-spacing:-.01em;margin:0 0 4px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow)}
+.card.flat{box-shadow:none}
+.card h3{margin:0 0 2px;font-size:16.5px;font-weight:650;letter-spacing:-.01em}
+.card .sub{color:var(--ink3);font-size:13px;margin:0 0 12px}
+.card .note{color:var(--ink3);font-size:12.5px;margin:12px 0 0;border-top:1px dashed var(--line);padding-top:10px;line-height:1.45}
+.exh{font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat .v{font-family:var(--disp);font-size:38px;font-weight:500;line-height:1;letter-spacing:-.02em}
+.stat .v small{font-size:18px;color:var(--ink3);font-family:var(--font);font-weight:500;margin-left:4px}
+.stat .l{font-size:13px;color:var(--ink3)}
+.stat .d{font-size:12.5px;color:var(--ink2);margin-top:6px}
+.controls{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:0 0 14px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line2);border-radius:9px;overflow:hidden;background:var(--card)}
+.seg button{white-space:nowrap;padding:7px 12px;font-size:13px;font-weight:500;color:var(--ink2)}
+.seg button.on{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.seg button:not(.on):hover{background:var(--bg)}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink2);cursor:pointer;padding:6px 10px;border:1px solid var(--line2);border-radius:9px;background:var(--card)}
+.chk input{accent-color:var(--accent);margin:0}
+select,.sel{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line2);border-radius:9px;background:var(--card);color:var(--ink)}
+.lbl{font-size:12.5px;color:var(--ink3);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;border:1px solid var(--line2);border-radius:999px;font-size:13px;background:var(--card);color:var(--ink2)}
+.chip.on{border-color:var(--ink);color:var(--ink);font-weight:600;box-shadow:inset 0 0 0 1px var(--ink)}
+.chip .dot{width:10px;height:10px;border-radius:50%;background:var(--ref)}
+.chip:hover{border-color:var(--ink3)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--ink2);margin:8px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:3px;border-radius:2px;background:var(--ref);display:inline-block}
+.legend i.sq{height:12px;border-radius:3px}
+.legend i.dash{background:repeating-linear-gradient(90deg,var(--ink3) 0 3px,transparent 3px 5px)}
+
+/* Graphiques */
+.chart{width:100%;position:relative}
+.chart svg{width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--font);fill:var(--ink2);font-size:12.5px}
+.chart .lab{fill:var(--ink);font-weight:500}
+.chart .val{fill:var(--ink2);font-family:var(--mono);font-size:12px}
+.chart .axis text{fill:var(--ink4);font-size:11.5px}
+.chart .grid line{stroke:var(--line);stroke-width:1}
+.chart .axis line,.chart .axis path{stroke:var(--line2)}
+.chart .bar{fill:var(--bar);transition:fill .15s}
+.chart .bar.hi{fill:var(--accent)}
+.chart .bar.ref{fill:var(--ref)}
+.chart .bar.gold{fill:var(--gold)}
+.chart .bar.neg{fill:color-mix(in srgb,var(--bad) 55%,var(--card))}
+.chart .bar.pos{fill:color-mix(in srgb,var(--good) 55%,var(--card))}
+.chart .bar.hi.neg,.chart .bar.hi.pos{stroke:var(--accent);stroke-width:2}
+.pil{display:grid;gap:6px;margin-top:14px}
+.pil div{display:grid;grid-template-columns:1fr 120px 36px;gap:10px;align-items:center;font-size:13px}
+.pil .b{height:8px;border-radius:4px;background:var(--bar);position:relative}
+.pil .b i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--accent)}
+.pil .w{font-family:var(--mono);font-size:12px;color:var(--ink3);text-align:right}
+.chart .bar:hover{fill:var(--bar2)}
+.chart .bar.hi:hover{fill:var(--accent)}
+.chart .refline{stroke:var(--ink3);stroke-dasharray:4 4;stroke-width:1.5}
+.chart .reftxt{fill:var(--ink3);font-size:11.5px;font-family:var(--mono)}
+.chart .hit{fill:transparent;cursor:pointer}
+.chart .ln{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.chart .ln.ghost{stroke:var(--ref);stroke-width:1.2;opacity:.7}
+.chart .ln.oecd{stroke:var(--ink3);stroke-dasharray:5 4;stroke-width:1.6}
+.chart .pt{stroke:var(--card);stroke-width:2}
+.chart .dl{font-size:12px;font-weight:600}
+.tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:12.5px;line-height:1.4;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .1s}
+.tip b{display:block;font-size:13px}
+.tip.on{opacity:1}
+.rowlab{display:flex;align-items:center;gap:8px}
+
+/* Tableaux */
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{text-align:left;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line2);white-space:nowrap;cursor:pointer;user-select:none}
+.tbl th.num,.tbl td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:12.5px}
+.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl tr:hover td{background:color-mix(in srgb,var(--accent2) 45%,transparent)}
+.tbl td.best{color:var(--accent);font-weight:700}
+.tbl td.hi,.tbl tr.hi td{background:var(--accent2)}
+.tbl .cty{display:flex;align-items:center;gap:8px;font-weight:500;white-space:nowrap}
+.tbl .cty a{color:inherit}
+.tbl .rk{color:var(--ink4);font-family:var(--mono);font-size:12px;width:28px;display:inline-block}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl th.sorted::after{content:" ▾";color:var(--accent)}
+.tbl th.sorted.asc::after{content:" ▴"}
+.na{color:var(--ink4)}
+.pos{color:var(--good);font-weight:600}
+.neg{color:var(--bad);font-weight:600}
+
+/* Cartes pays */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:12px}
+.cc{display:flex;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;transition:transform .15s,border-color .15s;text-align:left}
+.cc:hover{transform:translateY(-2px);border-color:var(--accent)}
+.cc .hd{display:flex;align-items:center;gap:10px}
+.cc .hd b{font-size:15px}
+.cc .hd small{display:block;color:var(--ink3);font-size:12px;font-weight:400}
+.cc .kv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.cc .kv div{font-size:11px;color:var(--ink3);line-height:1.2}
+.cc .kv div b{display:block;font-size:15px;color:var(--ink);font-family:var(--mono);font-weight:600;margin-bottom:2px}
+.cc .fact{font-size:12.5px;color:var(--ink2);line-height:1.4}
+.cc .rank{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink3)}
+
+/* Podium et classement composite */
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end}
+.podium .p{border-radius:12px;padding:14px;text-align:center;background:var(--bg);border:1px solid var(--line)}
+.podium .p.one{background:var(--gold2);border-color:var(--gold)}
+.podium .p .flag{margin:0 auto 8px}
+.podium .p .n{font-weight:650;font-size:14px}
+.podium .p .s{font-family:var(--disp);font-size:30px;line-height:1.1}
+.podium .p .m{font-size:11.5px;color:var(--ink3)}
+.wgt{display:grid;gap:8px}
+.wgt label{display:grid;grid-template-columns:1fr 100px 40px;align-items:center;gap:10px;font-size:13px}
+.wgt input[type=range]{accent-color:var(--accent);width:100%}
+.wgt .w{font-family:var(--mono);font-size:12px;color:var(--ink3);text-align:right}
+.ranklist{display:grid;gap:6px}
+.rr{display:grid;grid-template-columns:28px 28px minmax(0,1fr) 110px 56px;align-items:center;gap:10px;padding:7px 8px;border-radius:9px;cursor:pointer}
+.rr:hover{background:var(--bg)}
+.rr .n{font-weight:500;font-size:14px}
+.rr .n small{color:var(--ink3);font-size:12px;margin-left:6px}
+.rr .k{font-family:var(--mono);color:var(--ink3);font-size:12px}
+.rr .b{height:8px;border-radius:4px;background:var(--bar);position:relative}
+.rr .b i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--accent)}
+.rr .v{font-family:var(--disp);font-size:19px;text-align:right}
+.rr.top1 .v{color:var(--gold)}
+
+/* Fiche pays */
+.dossier .hero{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.dossier .hero h1{margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.kpi{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.kpi .v{font-family:var(--disp);font-size:26px;line-height:1.1}
+.kpi .v small{font-family:var(--font);font-size:12px;color:var(--ink3);margin-left:3px}
+.kpi .l{font-size:12px;color:var(--ink3);margin-top:2px}
+.kpi .r{font-family:var(--mono);font-size:11px;color:var(--accent);margin-top:4px}
+.ftr{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:8px 14px;border-radius:9px;border:1px solid var(--line2);background:var(--card);font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.pri:hover{color:var(--accent-ink);filter:brightness(1.05)}
+
+/* Frises */
+.tl{display:grid;gap:0;position:relative}
+.tl .it{display:grid;grid-template-columns:64px 36px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.tl .it .y{font-family:var(--disp);font-size:22px;line-height:1.1;color:var(--ink)}
+.tl .it .t{font-weight:600}
+.tl .it .w{color:var(--ink2);font-size:13px}
+.tl .it .h{color:var(--ink3);font-size:12.5px;margin-top:2px}
+.tag{display:inline-block;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.02em;background:var(--accent2);color:var(--accent);margin-left:6px;vertical-align:middle}
+.tag.gold{background:var(--gold2);color:var(--gold)}
+.tag.gray{background:var(--bg);color:var(--ink3)}
+.medals{display:inline-flex;gap:4px;font-family:var(--mono);font-size:12px}
+.medals i{display:inline-flex;align-items:center;gap:2px;font-style:normal}
+.medals b{width:10px;height:10px;border-radius:50%;display:inline-block}
+.m-g{background:#d4a017}.m-s{background:#a8a9ad}.m-b{background:#a0522d}
+
+.laur{display:grid;gap:10px}
+.laur .it{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.laur .it .y{font-family:var(--disp);font-size:22px}
+.laur .it .f{font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+.laur .it .n{font-weight:600;font-size:14px;margin:2px 0}
+.laur .it .w{color:var(--ink3);font-size:12.5px}
+.laur .it .fl{display:flex;gap:4px;margin-top:6px}
+
+/* Radar / face à face */
+.ff-sel{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ff-sel .slot{display:inline-flex;align-items:center;gap:6px;padding:4px 6px 4px 4px;border-radius:9px;border:2px solid var(--c,var(--line2))}
+.ff-sel .slot select{border:0;padding:4px 6px;background:transparent}
+.ff-sel .slot .rm{color:var(--ink3);padding:0 4px}
+
+/* Sources */
+.src{display:grid;gap:12px}
+.src .it{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.src .it b{display:block;margin-bottom:2px}
+.src .it p{margin:0;color:var(--ink2);font-size:13.5px}
+.src .it .m{font-family:var(--mono);font-size:11.5px;color:var(--ink3)}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 20px;color:var(--ink3);font-size:12.5px}
+footer .in{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+.kbd{font-family:var(--mono);font-size:11px;padding:1px 5px;border:1px solid var(--line2);border-radius:4px;color:var(--ink3)}
+.empty{padding:30px;text-align:center;color:var(--ink3)}
+.callout{border-left:3px solid var(--accent);background:var(--accent2);padding:12px 14px;border-radius:0 10px 10px 0;font-size:14px;color:var(--ink)}
+.callout b{display:block;margin-bottom:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.brand{min-width:0}
+@media (max-width:760px){.brand small{display:none}.top .in{gap:10px}.card{padding:14px 14px}.two{grid-template-columns:1fr}.podium .p .s{font-size:24px}.rr{grid-template-columns:22px 24px minmax(0,1fr) 60px 46px;gap:6px}.rr .n{font-size:13px}.wgt label{grid-template-columns:1fr 80px 36px}.tl .it{grid-template-columns:52px 30px 1fr;gap:8px}.tl .it .y{font-size:18px}}
+@media print{.top,footer,.controls{display:none}.page{display:block!important}}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="in">
+    <div class="brand"><div class="mark">G</div><div>Atlas Éducation G20<small>PISA · Nobel · Fields · Universités · Recherche</small></div></div>
+    <div class="sp"></div>
+    <button class="iconbtn" id="shareBtn" title="Partager le lien" aria-label="Partager"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+    <button class="iconbtn" id="themeBtn" title="Thème clair ou sombre" aria-label="Changer de thème"></button>
+  </div>
+  <nav class="nav" aria-label="Pages"></nav>
+</header>
+<main></main>
+<footer><div class="in"><span>Atlas Éducation G20 · Abdoul Hamid Diallo · Data Engineer</span><span>Sources : OCDE PISA, IMO, Fondation Nobel, IMU, QS, THE, ARWU, UNESCO, Banque mondiale, PNUD · Navigation <span class="kbd">←</span> <span class="kbd">→</span></span></div></footer>
+<script>
+/* Données embarquées. Toutes les valeurs sont documentées dans la page Sources. */
+const DATA = {
+  countries: [
+    { id:'US', name:'États-Unis', short:'États-Unis', pop:340, region:'Amérique du Nord', capital:'Washington', system:'Décentralisé (50 États), K-12, 12 ans de scolarité obligatoire selon l’État', langue:'anglais' },
+    { id:'CN', name:'Chine', short:'Chine', pop:1410, region:'Asie', capital:'Pékin', system:'Centralisé, 9 ans obligatoires, gaokao sélectif à la fin du lycée', langue:'mandarin' },
+    { id:'JP', name:'Japon', short:'Japon', pop:124, region:'Asie', capital:'Tokyo', system:'6-3-3-4, 9 ans obligatoires, examen national d’entrée à l’université', langue:'japonais' },
+    { id:'DE', name:'Allemagne', short:'Allemagne', pop:84, region:'Europe', capital:'Berlin', system:'Fédéral (16 Länder), orientation précoce, apprentissage dual réputé', langue:'allemand' },
+    { id:'IN', name:'Inde', short:'Inde', pop:1440, region:'Asie', capital:'New Delhi', system:'Fédéral, droit à l’éducation de 6 à 14 ans, IIT et IIM d’élite', langue:'hindi, anglais' },
+    { id:'GB', name:'Royaume-Uni', short:'Royaume-Uni', pop:68, region:'Europe', capital:'Londres', system:'Quatre systèmes (Angleterre, Écosse, Galles, Irlande du Nord), GCSE et A-levels', langue:'anglais' },
+    { id:'FR', name:'France', short:'France', pop:68, region:'Europe', capital:'Paris', system:'Centralisé, obligatoire de 3 à 16 ans, baccalauréat, grandes écoles', langue:'français' },
+    { id:'IT', name:'Italie', short:'Italie', pop:59, region:'Europe', capital:'Rome', system:'Centralisé, obligatoire de 6 à 16 ans, maturità', langue:'italien' },
+    { id:'BR', name:'Brésil', short:'Brésil', pop:212, region:'Amérique du Sud', capital:'Brasília', system:'Fédéral, obligatoire de 4 à 17 ans, ENEM pour l’accès aux universités', langue:'portugais' },
+    { id:'CA', name:'Canada', short:'Canada', pop:41, region:'Amérique du Nord', capital:'Ottawa', system:'Entièrement provincial (pas de ministère fédéral), bilingue', langue:'anglais, français' },
+    { id:'RU', name:'Russie', short:'Russie', pop:144, region:'Europe / Asie', capital:'Moscou', system:'Centralisé, 11 ans, examen d’État unifié (EGE)', langue:'russe' },
+    { id:'KR', name:'Corée du Sud', short:'Corée du Sud', pop:52, region:'Asie', capital:'Séoul', system:'6-3-3-4, suneung (CSAT) très sélectif, hagwons privés omniprésents', langue:'coréen' },
+    { id:'AU', name:'Australie', short:'Australie', pop:27, region:'Océanie', capital:'Canberra', system:'États et territoires, ATAR pour l’université, forte attractivité internationale', langue:'anglais' },
+    { id:'MX', name:'Mexique', short:'Mexique', pop:130, region:'Amérique du Nord', capital:'Mexico', system:'Fédéral, obligatoire jusqu’au lycée depuis 2012', langue:'espagnol' },
+    { id:'ID', name:'Indonésie', short:'Indonésie', pop:281, region:'Asie', capital:'Jakarta', system:'12 ans obligatoires, réseau public et madrasas, Merdeka Belajar', langue:'indonésien' },
+    { id:'SA', name:'Arabie saoudite', short:'Arabie saoudite', pop:34, region:'Moyen-Orient', capital:'Riyad', system:'Centralisé, gratuit, Vision 2030 et bourses à l’étranger', langue:'arabe' },
+    { id:'TR', name:'Türkiye', short:'Türkiye', pop:86, region:'Europe / Asie', capital:'Ankara', system:'Centralisé, 4+4+4 obligatoire, examen YKS', langue:'turc' },
+    { id:'AR', name:'Argentine', short:'Argentine', pop:46, region:'Amérique du Sud', capital:'Buenos Aires', system:'Fédéral, obligatoire de 4 à 17 ans, universités publiques gratuites et ouvertes', langue:'espagnol' },
+    { id:'ZA', name:'Afrique du Sud', short:'Afrique du Sud', pop:63, region:'Afrique', capital:'Pretoria', system:'9 provinces, obligatoire de 7 à 15 ans, matric (NSC), 11 langues officielles', langue:'anglais, zoulou, xhosa, afrikaans' }
+  ],
+  refs: [
+    { id:'SG', name:'Singapour', pop:5.9 },
+    { id:'EE', name:'Estonie', pop:1.4 },
+    { id:'FI', name:'Finlande', pop:5.6 }
+  ],
+
+  /* PISA 2022, scores moyens (OCDE, volume I). Chine, Inde, Russie, Afrique du Sud : non participants en 2022. */
+  pisa2022: {
+    US:{m:465,r:504,s:499}, JP:{m:536,r:516,s:547}, DE:{m:475,r:480,s:492}, GB:{m:489,r:494,s:500},
+    FR:{m:474,r:474,s:487}, IT:{m:471,r:482,s:477}, BR:{m:379,r:410,s:403}, CA:{m:497,r:507,s:515},
+    KR:{m:527,r:515,s:528}, AU:{m:487,r:498,s:507}, MX:{m:395,r:415,s:410}, ID:{m:366,r:359,s:383},
+    SA:{m:389,r:383,s:390}, TR:{m:453,r:456,s:476}, AR:{m:378,r:401,s:406},
+    SG:{m:575,r:543,s:561}, EE:{m:510,r:511,s:526}, FI:{m:484,r:490,s:511},
+    OECD:{m:472,r:476,s:485}
+  },
+  /* PISA 2018 (dernier cycle avec la Chine B-S-J-Z et la Russie) */
+  pisa2018: {
+    CN:{m:591,r:555,s:590}, RU:{m:488,r:479,s:478}, US:{m:478,r:505,s:502}, JP:{m:527,r:504,s:529},
+    DE:{m:500,r:498,s:503}, GB:{m:502,r:504,s:505}, FR:{m:495,r:493,s:493}, IT:{m:487,r:476,s:468},
+    BR:{m:384,r:413,s:404}, CA:{m:512,r:520,s:518}, KR:{m:526,r:514,s:519}, AU:{m:491,r:503,s:503},
+    MX:{m:409,r:420,s:419}, ID:{m:379,r:371,s:396}, SA:{m:373,r:399,s:386}, TR:{m:454,r:466,s:468},
+    AR:{m:379,r:402,s:404}, SG:{m:569,r:549,s:551}, EE:{m:523,r:523,s:530}, FI:{m:507,r:520,s:522},
+    OECD:{m:489,r:487,s:489}
+  },
+  /* Trajectoire PISA mathématiques, cycles 2003 à 2022 (null = non participant ou non comparable) */
+  pisaYears:[2003,2006,2009,2012,2015,2018,2022],
+  pisaMathTrend: {
+    JP:[534,523,529,536,532,527,536], KR:[542,547,546,554,524,526,527], CA:[532,527,527,518,516,512,497],
+    GB:[null,495,492,494,492,502,489], DE:[503,504,513,514,506,500,475], FR:[511,496,497,495,493,495,474],
+    AU:[524,520,514,504,494,491,487], IT:[466,462,483,485,490,487,471], US:[483,474,487,481,470,478,465],
+    RU:[468,476,468,482,494,488,null], TR:[423,424,445,448,420,454,453], MX:[385,406,419,413,408,409,395],
+    BR:[356,370,386,391,377,384,379], AR:[null,381,388,388,null,379,378], ID:[360,391,371,375,386,379,366],
+    SA:[null,null,null,null,null,373,389], CN:[null,null,600,613,531,591,null],
+    SG:[null,null,562,573,564,569,575], EE:[null,515,512,521,520,523,510], FI:[544,548,541,519,511,507,484],
+    OECD:[500,498,496,494,490,489,472]
+  },
+  /* Trajectoire PISA compréhension de l'écrit, cycles 2000 à 2022 */
+  pisaReadYears:[2000,2003,2006,2009,2012,2015,2018,2022],
+  pisaReadTrend: {
+    JP:[522,498,498,520,538,516,504,516], KR:[525,534,556,539,536,517,514,515], CA:[534,528,527,524,523,527,520,507],
+    GB:[523,null,495,494,499,498,504,494], DE:[484,491,495,497,508,509,498,480], FR:[505,496,488,496,505,499,493,474],
+    AU:[528,525,513,515,512,503,503,498], IT:[487,476,469,486,490,485,476,482], US:[504,495,null,500,498,497,505,504],
+    RU:[462,442,440,459,475,495,479,null], TR:[null,441,447,464,475,428,466,456], MX:[422,400,410,425,424,423,420,415],
+    BR:[396,403,393,412,407,407,413,410], AR:[418,null,374,398,396,null,402,401], ID:[371,382,393,402,396,397,371,359],
+    SA:[null,null,null,null,null,null,399,383], CN:[null,null,null,556,570,494,555,null],
+    SG:[null,null,null,526,542,535,549,543], EE:[null,null,501,501,516,519,523,511], FI:[546,543,547,536,524,526,520,490],
+    OECD:[500,494,492,493,496,493,487,476]
+  },
+  pisaNotes: {
+    CN:'La Chine participe par échantillon régional : Shanghai (2009, 2012), Pékin-Shanghai-Jiangsu-Guangdong (2015), Pékin-Shanghai-Jiangsu-Zhejiang (2018). Absente en 2022.',
+    IN:'L’Inde n’a participé qu’une fois (2009, Tamil Nadu et Himachal Pradesh, environ 340 points en mathématiques) et s’est retirée depuis.',
+    RU:'La Russie a participé de 2000 à 2018 ; non participante en 2022.',
+    ZA:'L’Afrique du Sud ne participe pas à PISA ; elle est évaluée par TIMSS (dernier rang en mathématiques en 2019 et 2023).',
+    AR:'Seule la ville de Buenos Aires a participé en 2015.',
+    GB:'Le score 2003 du Royaume-Uni est exclu par l’OCDE (taux de réponse insuffisant).'
+  },
+
+  /* Olympiades internationales de mathématiques 2025 (Sunshine Coast, Australie) : rang mondial, score sur 252, or/argent/bronze */
+  imo2025: {
+    CN:{rank:1,score:231,g:6,s:0,b:0}, US:{rank:2,score:216,g:5,s:1,b:0}, KR:{rank:3,score:203,g:4,s:2,b:0},
+    JP:{rank:4,score:196,g:3,s:2,b:1}, IN:{rank:7,score:193,g:3,s:2,b:1}, TR:{rank:10,score:186,g:2,s:3,b:1},
+    AU:{rank:15,score:179,g:2,s:2,b:2}, GB:{rank:16,score:178,g:3,s:1,b:2}, IT:{rank:18,score:174,g:2,s:2,b:2},
+    CA:{rank:21,score:169,g:2,s:2,b:1}, DE:{rank:29,score:157,g:0,s:2,b:4}, FR:{rank:30,score:156,g:1,s:2,b:2},
+    MX:{rank:31,score:153,g:0,s:2,b:4}, BR:{rank:32,score:148,g:0,s:3,b:2}, ZA:{rank:38,score:136,g:0,s:1,b:4},
+    ID:{rank:47,score:123,g:0,s:0,b:4}, SA:{rank:48,score:118,g:0,s:0,b:3}, AR:{rank:60,score:99,g:0,s:0,b:1},
+    RU:null
+  },
+
+  /* Prix Nobel par nationalité des lauréats (1901 à 2025, doubles nationalités comptées pour chaque pays) */
+  nobel: {
+    US:428, GB:145, DE:116, FR:79, JP:33, RU:30, CA:29, IT:21, AU:14, IN:13, ZA:11, CN:8, AR:5, MX:3, KR:2, TR:2, BR:1, ID:0, SA:0
+  },
+  nobelFirst: { US:1906, GB:1902, DE:1901, FR:1901, JP:1949, RU:1904, CA:1923, IT:1906, AU:1915, IN:1913, ZA:1951, CN:1957, AR:1936, MX:1982, KR:2000, TR:2006, BR:1960, ID:null, SA:null },
+  nobelRecent: [
+    { year:2025, field:'Physique', names:'John Clarke (Royaume-Uni), Michel Devoret (France), John Martinis (États-Unis)', c:['GB','FR','US'], why:'effet tunnel quantique macroscopique dans un circuit électrique' },
+    { year:2025, field:'Chimie', names:'Susumu Kitagawa (Japon), Richard Robson (Royaume-Uni / Australie), Omar Yaghi (États-Unis)', c:['JP','GB','AU','US'], why:'structures métallo-organiques (MOF)' },
+    { year:2025, field:'Médecine', names:'Mary Brunkow, Fred Ramsdell (États-Unis), Shimon Sakaguchi (Japon)', c:['US','JP'], why:'tolérance immunitaire périphérique, lymphocytes T régulateurs' },
+    { year:2025, field:'Économie', names:'Joel Mokyr (États-Unis), Philippe Aghion (France), Peter Howitt (Canada)', c:['US','FR','CA'], why:'croissance tirée par l’innovation, destruction créatrice' },
+    { year:2024, field:'Physique', names:'John Hopfield (États-Unis), Geoffrey Hinton (Royaume-Uni / Canada)', c:['US','GB','CA'], why:'fondements des réseaux de neurones artificiels' },
+    { year:2024, field:'Chimie', names:'David Baker (États-Unis), Demis Hassabis, John Jumper (Royaume-Uni / États-Unis)', c:['US','GB'], why:'conception et prédiction des structures de protéines (AlphaFold)' },
+    { year:2024, field:'Médecine', names:'Victor Ambros, Gary Ruvkun (États-Unis)', c:['US'], why:'découverte des microARN' },
+    { year:2024, field:'Littérature', names:'Han Kang (Corée du Sud)', c:['KR'], why:'première lauréate asiatique de littérature' },
+    { year:2024, field:'Paix', names:'Nihon Hidankyo (Japon)', c:['JP'], why:'témoignage des survivants d’Hiroshima et Nagasaki' },
+    { year:2024, field:'Économie', names:'Daron Acemoglu (Türkiye / États-Unis), Simon Johnson (Royaume-Uni / États-Unis), James Robinson (Royaume-Uni / États-Unis)', c:['TR','US','GB'], why:'institutions et prospérité des nations' },
+    { year:2023, field:'Médecine', names:'Katalin Karikó (Hongrie / États-Unis), Drew Weissman (États-Unis)', c:['US'], why:'modifications de l’ARN messager ayant rendu possibles les vaccins contre la COVID-19' },
+    { year:2023, field:'Physique', names:'Pierre Agostini (France), Ferenc Krausz (Hongrie / Autriche), Anne L’Huillier (France / Suède)', c:['FR'], why:'impulsions attosecondes' },
+    { year:2023, field:'Chimie', names:'Moungi Bawendi (France / États-Unis), Louis Brus (États-Unis), Alexey Ekimov (Russie)', c:['FR','US','RU'], why:'points quantiques' },
+    { year:2022, field:'Physique', names:'Alain Aspect (France), John Clauser (États-Unis), Anton Zeilinger (Autriche)', c:['FR','US'], why:'intrication quantique' },
+    { year:2021, field:'Physique', names:'Syukuro Manabe (Japon / États-Unis), Klaus Hasselmann (Allemagne), Giorgio Parisi (Italie)', c:['JP','US','DE','IT'], why:'modélisation du climat et systèmes complexes' },
+    { year:2021, field:'Chimie', names:'Benjamin List (Allemagne), David MacMillan (Royaume-Uni / États-Unis)', c:['DE','GB','US'], why:'organocatalyse asymétrique' },
+    { year:2020, field:'Chimie', names:'Emmanuelle Charpentier (France), Jennifer Doudna (États-Unis)', c:['FR','US'], why:'ciseaux génétiques CRISPR-Cas9' },
+    { year:2020, field:'Médecine', names:'Harvey Alter, Charles Rice (États-Unis), Michael Houghton (Royaume-Uni)', c:['US','GB'], why:'découverte du virus de l’hépatite C' }
+  ],
+
+  /* Médaille Fields, 1936 à 2026, nationalité au moment du prix (doubles nationalités comptées pour chaque pays) */
+  fields: [
+    { y:1936, n:'Lars Ahlfors', c:['FI'] }, { y:1936, n:'Jesse Douglas', c:['US'] },
+    { y:1950, n:'Laurent Schwartz', c:['FR'] }, { y:1950, n:'Atle Selberg', c:['NO','US'] },
+    { y:1954, n:'Kunihiko Kodaira', c:['JP'] }, { y:1954, n:'Jean-Pierre Serre', c:['FR'] },
+    { y:1958, n:'Klaus Roth', c:['GB'] }, { y:1958, n:'René Thom', c:['FR'] },
+    { y:1962, n:'Lars Hörmander', c:['SE'] }, { y:1962, n:'John Milnor', c:['US'] },
+    { y:1966, n:'Michael Atiyah', c:['GB'] }, { y:1966, n:'Paul Cohen', c:['US'] }, { y:1966, n:'Alexander Grothendieck', c:['FR'] }, { y:1966, n:'Stephen Smale', c:['US'] },
+    { y:1970, n:'Alan Baker', c:['GB'] }, { y:1970, n:'Heisuke Hironaka', c:['JP'] }, { y:1970, n:'Sergei Novikov', c:['RU'] }, { y:1970, n:'John G. Thompson', c:['US'] },
+    { y:1974, n:'Enrico Bombieri', c:['IT'] }, { y:1974, n:'David Mumford', c:['US','GB'] },
+    { y:1978, n:'Pierre Deligne', c:['BE'] }, { y:1978, n:'Charles Fefferman', c:['US'] }, { y:1978, n:'Grigori Margulis', c:['RU'] }, { y:1978, n:'Daniel Quillen', c:['US'] },
+    { y:1982, n:'Alain Connes', c:['FR'] }, { y:1982, n:'William Thurston', c:['US'] }, { y:1982, n:'Shing-Tung Yau', c:['CN','US'] },
+    { y:1986, n:'Simon Donaldson', c:['GB'] }, { y:1986, n:'Gerd Faltings', c:['DE'] }, { y:1986, n:'Michael Freedman', c:['US'] },
+    { y:1990, n:'Vladimir Drinfeld', c:['RU'] }, { y:1990, n:'Vaughan Jones', c:['NZ'] }, { y:1990, n:'Shigefumi Mori', c:['JP'] }, { y:1990, n:'Edward Witten', c:['US'] },
+    { y:1994, n:'Jean Bourgain', c:['BE'] }, { y:1994, n:'Pierre-Louis Lions', c:['FR'] }, { y:1994, n:'Jean-Christophe Yoccoz', c:['FR'] }, { y:1994, n:'Efim Zelmanov', c:['RU','US'] },
+    { y:1998, n:'Richard Borcherds', c:['GB','US'] }, { y:1998, n:'Timothy Gowers', c:['GB'] }, { y:1998, n:'Maxim Kontsevich', c:['RU','FR'] }, { y:1998, n:'Curtis McMullen', c:['US'] },
+    { y:2002, n:'Laurent Lafforgue', c:['FR'] }, { y:2002, n:'Vladimir Voevodsky', c:['RU','US'] },
+    { y:2006, n:'Andrei Okounkov', c:['RU','US'] }, { y:2006, n:'Grigori Perelman', c:['RU'] }, { y:2006, n:'Terence Tao', c:['AU','US'] }, { y:2006, n:'Wendelin Werner', c:['FR'] },
+    { y:2010, n:'Elon Lindenstrauss', c:['IL'] }, { y:2010, n:'Ngô Bảo Châu', c:['VN','FR'] }, { y:2010, n:'Stanislav Smirnov', c:['RU'] }, { y:2010, n:'Cédric Villani', c:['FR'] },
+    { y:2014, n:'Artur Avila', c:['BR','FR'] }, { y:2014, n:'Manjul Bhargava', c:['CA','US'] }, { y:2014, n:'Martin Hairer', c:['AT','GB'] }, { y:2014, n:'Maryam Mirzakhani', c:['IR'] },
+    { y:2018, n:'Caucher Birkar', c:['IR','GB'] }, { y:2018, n:'Alessio Figalli', c:['IT'] }, { y:2018, n:'Peter Scholze', c:['DE'] }, { y:2018, n:'Akshay Venkatesh', c:['AU'] },
+    { y:2022, n:'Hugo Duminil-Copin', c:['FR'] }, { y:2022, n:'June Huh', c:['KR','US'] }, { y:2022, n:'James Maynard', c:['GB'] }, { y:2022, n:'Maryna Viazovska', c:['UA'] },
+    { y:2026, n:'Yu Deng', c:['CN','US'] }, { y:2026, n:'John Pardon', c:['US'] }, { y:2026, n:'Jacob Tsimerman', c:['CA'] }, { y:2026, n:'Hong Wang', c:['CN','US'] }
+  ],
+  fieldsOther: { FI:'Finlande', NO:'Norvège', SE:'Suède', BE:'Belgique', NZ:'Nouvelle-Zélande', IL:'Israël', VN:'Viêt Nam', AT:'Autriche', IR:'Iran', UA:'Ukraine' },
+
+  /* Classements d'universités : nombre d'établissements dans le top 100 et meilleur établissement */
+  uni: {
+    US:{ qs:25, the:35, arwu:37, best:'MIT (1er QS 2027), Harvard (1er ARWU 2026)', bestQs:1 },
+    GB:{ qs:16, the:11, arwu:8, best:'Imperial College London (2e QS), Oxford (1er THE 2026)', bestQs:2 },
+    CN:{ qs:6, the:7, arwu:16, best:'Université de Pékin (13e QS), Tsinghua (18e ARWU)', bestQs:13 },
+    AU:{ qs:9, the:6, arwu:5, best:'UNSW Sydney (19e QS)', bestQs:19 },
+    DE:{ qs:4, the:8, arwu:4, best:'Université technique de Munich (25e QS)', bestQs:25 },
+    CA:{ qs:4, the:5, arwu:3, best:'McGill (30e QS), Toronto (25e ARWU)', bestQs:30 },
+    FR:{ qs:4, the:3, arwu:4, best:'Université PSL (34e QS), Paris-Saclay (13e ARWU)', bestQs:34 },
+    KR:{ qs:4, the:4, arwu:1, best:'Université nationale de Séoul (38e QS)', bestQs:38 },
+    JP:{ qs:4, the:2, arwu:2, best:'Université de Tokyo (39e QS)', bestQs:39 },
+    IT:{ qs:1, the:0, arwu:0, best:'Politecnico di Milano (87e QS)', bestQs:87 },
+    AR:{ qs:1, the:0, arwu:0, best:'Universidad de Buenos Aires (84e QS)', bestQs:84 },
+    SA:{ qs:1, the:0, arwu:0, best:'KFUPM (63e QS)', bestQs:63 },
+    RU:{ qs:0, the:0, arwu:0, best:'Université d’État de Moscou (environ 100e QS)', bestQs:105 },
+    BR:{ qs:0, the:0, arwu:0, best:'Université de São Paulo (environ 100e QS)', bestQs:110 },
+    MX:{ qs:0, the:0, arwu:0, best:'UNAM (environ 100e QS)', bestQs:110 },
+    IN:{ qs:0, the:0, arwu:0, best:'IIT Delhi (environ 120e QS)', bestQs:120 },
+    ZA:{ qs:0, the:0, arwu:0, best:'Université du Cap (environ 170e QS)', bestQs:170 },
+    TR:{ qs:0, the:0, arwu:0, best:'Koç, Université technique du Moyen-Orient (au-delà du top 300)', bestQs:300 },
+    ID:{ qs:0, the:0, arwu:0, best:'Universitas Indonesia (environ 200e QS)', bestQs:200 }
+  },
+  uniRanked: { /* nombre total d'établissements classés QS 2027 (ordre de grandeur) */ },
+
+  /* Recherche : dépense intérieure de R&D en % du PIB (2022-2023) et chercheurs par million d'habitants (UNESCO, dernier disponible) */
+  rd: { KR:5.0, US:3.5, JP:3.4, DE:3.1, GB:2.9, CN:2.6, FR:2.2, AU:1.7, CA:1.6, TR:1.4, IT:1.3, BR:1.2, RU:1.0, IN:0.65, ZA:0.6, AR:0.5, SA:0.5, ID:0.3, MX:0.3 },
+  researchers: { KR:9100, JP:5600, DE:5500, FR:5000, US:4800, GB:4700, CA:4600, AU:4500, RU:2700, IT:2500, TR:1900, CN:1700, AR:1200, BR:900, SA:800, ZA:500, ID:400, MX:350, IN:260 },
+
+  /* Financement et accès */
+  spend: { /* dépense publique d'éducation, % du PIB (Banque mondiale / UNESCO, dernière année disponible) */
+    SA:7.8, ZA:6.6, GB:5.5, BR:5.6, AU:5.5, US:5.4, FR:5.2, CA:5.0, AR:4.8, KR:4.7, DE:4.6, IN:4.6, MX:4.3, IT:4.1, CN:4.0, RU:3.7, TR:3.4, ID:3.5, JP:3.4
+  },
+  tertiary: { /* part des 25-34 ans diplômés du supérieur, % (OCDE Regards sur l'éducation 2025, estimations UNESCO pour les non-membres) */
+    KR:70, CA:67, JP:66, RU:62, GB:60, AU:56, US:51, FR:51, TR:42, DE:39, SA:34, IT:31, CN:27, MX:27, IN:25, BR:23, AR:21, ID:20, ZA:14
+  },
+  meanYears: { /* durée moyenne de scolarisation des adultes, années (PNUD, Rapport sur le développement humain 2025) */
+    DE:14.3, CA:13.9, US:13.9, GB:13.4, JP:13.4, RU:12.8, AU:12.7, KR:12.6, FR:11.7, ZA:11.6, SA:11.5, AR:11.1, IT:10.7, MX:9.2, TR:8.9, ID:8.7, BR:8.4, CN:8.1, IN:6.6
+  },
+  expYears: { /* durée attendue de scolarisation, années (PNUD) */
+    AU:21.1, TR:18.5, AR:18.1, GB:17.3, DE:17.0, IT:16.8, KR:16.5, US:16.3, CA:16.0, SA:16.0, FR:15.8, BR:15.6, RU:15.5, JP:15.2, MX:14.9, CN:14.2, ZA:14.0, ID:13.7, IN:12.6
+  },
+  literacy: { /* alphabétisation des adultes, % (UNESCO ; pays à 99 % ou plus notés 99) */
+    IN:77, ZA:90, SA:98, BR:94, MX:95, ID:96, TR:97, CN:97, AR:99, US:99, JP:99, DE:99, GB:99, FR:99, IT:99, CA:99, RU:99, KR:99, AU:99
+  },
+  pupilTeacher: { /* élèves par enseignant, primaire (UNESCO / OCDE, dernier disponible) */
+    IN:33, ZA:30, MX:24, ID:17, BR:21, CN:17, JP:15, GB:17, FR:18, KR:16, US:14, CA:16, AU:15, DE:15, TR:16, AR:14, SA:13, RU:21, IT:11
+  },
+  intlStudents: { /* étudiants internationaux accueillis, milliers (UNESCO / IIE / Campus France, ordre de grandeur 2023) */
+    US:1130, GB:730, CA:640, AU:590, DE:380, FR:430, RU:390, CN:250, JP:280, KR:210, IT:110, TR:300, SA:90, AR:120, ZA:40, IN:50, MX:40, BR:20, ID:10
+  },
+
+  /* Vaccins : contributions majeures, par pays d'origine de la découverte ou du développement */
+  vaccines: [
+    { y:1796, c:'GB', name:'Variole', who:'Edward Jenner', how:'première vaccination de l’histoire, à partir de la vaccine bovine ; la variole est éradiquée en 1980', kind:'découverte' },
+    { y:1885, c:'FR', name:'Rage', who:'Louis Pasteur', how:'premier vaccin atténué en laboratoire, testé sur Joseph Meister', kind:'découverte' },
+    { y:1890, c:'DE', name:'Diphtérie, tétanos (sérothérapie)', who:'Emil von Behring', how:'antitoxines ; premier prix Nobel de médecine (1901)', kind:'découverte' },
+    { y:1921, c:'FR', name:'Tuberculose (BCG)', who:'Albert Calmette, Camille Guérin', how:'vaccin le plus administré au monde', kind:'découverte' },
+    { y:1937, c:'US', name:'Fièvre jaune', who:'Max Theiler (Afrique du Sud / États-Unis)', how:'souche 17D, prix Nobel 1951', kind:'découverte' },
+    { y:1945, c:'US', name:'Grippe', who:'Thomas Francis, Jonas Salk', how:'premier vaccin grippal inactivé autorisé', kind:'découverte' },
+    { y:1955, c:'US', name:'Poliomyélite (injectable)', who:'Jonas Salk', how:'vaccin inactivé ; polio en voie d’éradication', kind:'découverte' },
+    { y:1961, c:'US', name:'Poliomyélite (oral)', who:'Albert Sabin', how:'vaccin oral atténué, base des campagnes mondiales', kind:'découverte' },
+    { y:1963, c:'US', name:'Rougeole, oreillons, rubéole', who:'John Enders, Maurice Hilleman', how:'Hilleman a développé plus de 40 vaccins', kind:'découverte' },
+    { y:1974, c:'JP', name:'Varicelle', who:'Michiaki Takahashi', how:'souche Oka, utilisée dans le monde entier', kind:'découverte' },
+    { y:1981, c:'US', name:'Hépatite B', who:'Maurice Hilleman, puis vaccin recombinant (1986)', how:'premier vaccin contre un cancer (foie)', kind:'découverte' },
+    { y:2000, c:'US', name:'Pneumocoque conjugué (Prevnar)', who:'Wyeth', how:'a fait reculer les pneumonies et méningites infantiles dans le monde entier', kind:'découverte' },
+    { y:2006, c:'AU', name:'Papillomavirus (HPV)', who:'Ian Frazer, Jian Zhou (Australie / Chine)', how:'prix Nobel 2008 à Harald zur Hausen (Allemagne) pour la découverte du lien HPV cancer', kind:'découverte' },
+    { y:2015, c:'CA', name:'Ebola (rVSV-ZEBOV)', who:'Laboratoire national de microbiologie de Winnipeg, puis Merck (États-Unis)', how:'efficacité de 100 % dans l’essai en anneau en Guinée', kind:'découverte' },
+    { y:2020, c:'DE', name:'COVID-19 (ARNm, BNT162b2)', who:'BioNTech (Uğur Şahin, Özlem Türeci) avec Pfizer', how:'premier vaccin ARNm autorisé au monde', kind:'covid' },
+    { y:2020, c:'US', name:'COVID-19 (ARNm-1273)', who:'Moderna et NIH', how:'prix Nobel 2023 à Karikó et Weissman pour la technologie ARNm', kind:'covid' },
+    { y:2020, c:'GB', name:'COVID-19 (vecteur adénoviral)', who:'Université d’Oxford et AstraZeneca', how:'vaccin le plus distribué dans les pays à revenu faible et intermédiaire en 2021', kind:'covid' },
+    { y:2020, c:'RU', name:'COVID-19 (Spoutnik V)', who:'Institut Gamaleya', how:'premier vaccin enregistré au monde (août 2020)', kind:'covid' },
+    { y:2020, c:'CN', name:'COVID-19 (CoronaVac, BBIBP-CorV)', who:'Sinovac, Sinopharm', how:'plus de 3 milliards de doses administrées, surtout en Asie et en Amérique latine', kind:'covid' },
+    { y:2021, c:'IN', name:'COVID-19 (Covaxin) et production mondiale', who:'Bharat Biotech, Serum Institute of India', how:'le Serum Institute est le premier producteur mondial de doses de vaccins', kind:'covid' },
+    { y:2021, c:'GB', name:'Paludisme (RTS,S)', who:'GSK, avec PATH', how:'premier vaccin contre un parasite recommandé par l’OMS', kind:'découverte' },
+    { y:2023, c:'GB', name:'Paludisme (R21/Matrix-M)', who:'Université d’Oxford, produit par le Serum Institute of India', how:'efficacité d’environ 75 %, déploiement en Afrique depuis 2024', kind:'découverte' },
+    { y:2023, c:'BR', name:'Production régionale', who:'Instituto Butantan, Fiocruz', how:'plus grand producteur de vaccins d’Amérique latine (fièvre jaune, grippe, dengue)', kind:'production' },
+    { y:2023, c:'KR', name:'Production et innovation', who:'SK bioscience, Samsung Biologics', how:'SKYCovione, premier vaccin COVID-19 coréen ; capacité de production sous contrat parmi les plus grandes du monde', kind:'production' },
+    { y:2023, c:'ID', name:'Production régionale', who:'Bio Farma', how:'l’un des principaux fournisseurs de l’UNICEF en vaccins polio', kind:'production' }
+  ],
+
+  /* Repères historiques par pays (pour la fiche pays) */
+  facts: {
+    US:'Premier pays au monde pour le nombre de prix Nobel, de médailles Fields et d’universités dans le top 100, mais 465 points en mathématiques à PISA 2022, sous la moyenne de l’OCDE.',
+    CN:'Première place aux Olympiades de mathématiques 2025 avec six médailles d’or, 16 universités dans le top 100 ARWU 2026 (contre 13 en 2025), mais absente de PISA 2022.',
+    JP:'Meilleur pays du G20 à PISA 2022 dans les trois domaines, 33 prix Nobel dont 8 depuis 2015, et une progression en mathématiques entre 2018 et 2022 quand presque tous les autres reculaient.',
+    DE:'116 prix Nobel, système d’apprentissage dual, mais chute de 25 points en mathématiques à PISA entre 2018 et 2022.',
+    IN:'7e aux Olympiades de mathématiques 2025, deuxième pays au monde pour le nombre d’universités classées par THE, mais l’Inde ne participe pas à PISA.',
+    GB:'Oxford première du classement THE pour la dixième année consécutive, 16 universités dans le top 100 QS, 145 prix Nobel.',
+    FR:'Deuxième pays au monde pour les médailles Fields (15), 79 prix Nobel, mais 474 points en mathématiques à PISA 2022, la plus forte baisse de son histoire.',
+    IT:'21 prix Nobel, Politecnico di Milano seule université italienne du top 100 QS, résultats PISA proches de la moyenne OCDE.',
+    BR:'Université de São Paulo aux portes du top 100, Artur Avila médaillé Fields 2014, mais 379 points en mathématiques à PISA 2022.',
+    CA:'Meilleur pays du G20 en compréhension de l’écrit hors Asie, 67 % des 25-34 ans diplômés du supérieur, Jacob Tsimerman médaillé Fields 2026.',
+    RU:'30 prix Nobel, 9 médailles Fields (deuxième école mathématique du monde au XXe siècle), non participante à PISA 2022 ni aux Olympiades 2025.',
+    KR:'70 % des 25-34 ans diplômés du supérieur (record mondial), 5 % du PIB en R&D, 3e aux Olympiades de mathématiques 2025, Han Kang prix Nobel de littérature 2024.',
+    AU:'9 universités dans le top 100 QS pour 27 millions d’habitants, un record par habitant, et deux médailles Fields (Tao, Venkatesh).',
+    MX:'UNAM aux portes du top 100, mais 395 points en mathématiques à PISA 2022 et une dépense de R&D de 0,3 % du PIB.',
+    ID:'Plus grand système scolaire d’Asie du Sud-Est (plus de 50 millions d’élèves), mais dernier du G20 à PISA 2022.',
+    SA:'Dépense publique d’éducation la plus élevée du G20 (7,8 % du PIB), KFUPM 63e au classement QS 2027.',
+    TR:'10e aux Olympiades de mathématiques 2025, Daron Acemoglu prix Nobel d’économie 2024, forte progression PISA entre 2015 et 2018.',
+    AR:'Universidad de Buenos Aires dans le top 100 QS, 5 prix Nobel (dont 3 en sciences), universités publiques gratuites.',
+    ZA:'11 prix Nobel (dont 4 prix de la paix), 6,6 % du PIB pour l’éducation, mais évaluée dernière en mathématiques à TIMSS.'
+  }
+};
+
+/* Drapeaux vectoriels simplifiés (viewBox 60 x 40), dessinés à la main pour rester légers. */
+const FLAGS = (() => {
+  const H = (fills) => fills.map((f, i) => `<rect x="0" y="${(40 / fills.length) * i}" width="60" height="${40 / fills.length + 0.2}" fill="${f}"/>`).join('');
+  const V = (fills) => fills.map((f, i) => `<rect x="${(60 / fills.length) * i}" y="0" width="${60 / fills.length + 0.2}" height="40" fill="${f}"/>`).join('');
+  const star = (cx, cy, r, fill) => {
+    let p = '';
+    for (let i = 0; i < 10; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.4 : r;
+      p += (i ? 'L' : 'M') + (cx + rr * Math.cos(a)).toFixed(2) + ' ' + (cy + rr * Math.sin(a)).toFixed(2);
+    }
+    return `<path d="${p}Z" fill="${fill}"/>`;
+  };
+  const jack = (w = 60, h = 40) => `
+    <rect width="${w}" height="${h}" fill="#012169"/>
+    <path d="M0 0L${w} ${h}M${w} 0L0 ${h}" stroke="#fff" stroke-width="${h * 0.2}"/>
+    <path d="M0 0L${w} ${h}M${w} 0L0 ${h}" stroke="#C8102E" stroke-width="${h * 0.07}"/>
+    <path d="M${w / 2} 0V${h}M0 ${h / 2}H${w}" stroke="#fff" stroke-width="${h * 0.32}"/>
+    <path d="M${w / 2} 0V${h}M0 ${h / 2}H${w}" stroke="#C8102E" stroke-width="${h * 0.19}"/>`;
+  const F = {
+    US: () => H(['#B22234', '#fff', '#B22234', '#fff', '#B22234', '#fff', '#B22234', '#fff', '#B22234', '#fff', '#B22234', '#fff', '#B22234']) +
+      `<rect width="24" height="21.5" fill="#3C3B6E"/>` + [...Array(15)].map((_, i) => `<circle cx="${3 + (i % 5) * 4.5 + (Math.floor(i / 5) % 2) * 2.2}" cy="${3.5 + Math.floor(i / 5) * 7}" r="1.1" fill="#fff"/>`).join(''),
+    CN: () => `<rect width="60" height="40" fill="#EE1C25"/>` + star(10, 10, 6, '#FFFF00') + star(20, 4, 2, '#FFFF00') + star(24, 8, 2, '#FFFF00') + star(24, 13, 2, '#FFFF00') + star(20, 17, 2, '#FFFF00'),
+    JP: () => `<rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="12" fill="#BC002D"/>`,
+    DE: () => H(['#000', '#DD0000', '#FFCE00']),
+    IN: () => H(['#FF9933', '#fff', '#138808']) + `<circle cx="30" cy="20" r="5.2" fill="none" stroke="#000080" stroke-width="1.2"/><circle cx="30" cy="20" r="1" fill="#000080"/>`,
+    GB: () => jack(),
+    FR: () => V(['#0055A4', '#fff', '#EF4135']),
+    IT: () => V(['#009246', '#fff', '#CE2B37']),
+    BR: () => `<rect width="60" height="40" fill="#009C3B"/><path d="M30 4L54 20L30 36L6 20Z" fill="#FFDF00"/><circle cx="30" cy="20" r="9.5" fill="#002776"/><path d="M21.2 17.5Q30 14 38.6 18.5" stroke="#fff" stroke-width="1.6" fill="none"/>`,
+    CA: () => `<rect width="60" height="40" fill="#fff"/><rect width="15" height="40" fill="#D80621"/><rect x="45" width="15" height="40" fill="#D80621"/><path d="M30 8l2 4 3-1.5-1 6 3.5-1.5-1 3 4 1.5-3 2.5 1 3-6-1v5h-3v-5l-6 1 1-3-3-2.5 4-1.5-1-3 3.5 1.5-1-6 3 1.5z" fill="#D80621"/>`,
+    RU: () => H(['#fff', '#0039A6', '#D52B1E']),
+    KR: () => `<rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="9" fill="#CD2E3A"/><path d="M22.2 15.5A9 9 0 0 0 37.8 24.5A4.5 4.5 0 0 1 30 20A4.5 4.5 0 0 0 22.2 15.5Z" fill="#0047A0"/>` +
+      `<g stroke="#000" stroke-width="1.6"><path d="M8 9l5-3M9.5 11.5l5-3M11 14l5-3"/><path d="M44 26l5 3M45.5 23.5l5 3M47 21l5 3"/><path d="M8 31l5 3M9.5 28.5l5 3M11 26l5 3"/><path d="M44 14l5-3M45.5 16.5l5-3M47 19l5-3"/></g>`,
+    AU: () => `<rect width="60" height="40" fill="#012169"/><g transform="scale(0.5)">${jack(60, 40)}</g>` + star(15, 30, 5, '#fff') + star(45, 9, 3, '#fff') + star(45, 31, 3, '#fff') + star(37, 20, 3, '#fff') + star(53, 17, 3, '#fff') + star(50, 24, 1.6, '#fff'),
+    MX: () => V(['#006847', '#fff', '#CE1126']) + `<circle cx="30" cy="20" r="4.5" fill="#8C6239"/><circle cx="30" cy="19" r="2" fill="#006847"/>`,
+    ID: () => H(['#CE1126', '#fff']),
+    SA: () => `<rect width="60" height="40" fill="#006C35"/><path d="M14 15q8-4 16 0t16 0" stroke="#fff" stroke-width="2.2" fill="none"/><path d="M14 20q8-4 16 0t16 0" stroke="#fff" stroke-width="2.2" fill="none"/><path d="M16 28h28" stroke="#fff" stroke-width="2.4"/><path d="M42 26l3 2-3 2z" fill="#fff"/>`,
+    TR: () => `<rect width="60" height="40" fill="#E30A17"/><circle cx="24" cy="20" r="10" fill="#fff"/><circle cx="26.5" cy="20" r="8" fill="#E30A17"/>` + star(36, 20, 4.2, '#fff'),
+    AR: () => H(['#74ACDF', '#fff', '#74ACDF']) + `<circle cx="30" cy="20" r="4" fill="#F6B40E"/>`,
+    ZA: () => `<rect width="60" height="40" fill="#fff"/><rect width="60" height="13.3" fill="#DE3831"/><rect y="26.7" width="60" height="13.3" fill="#002395"/><path d="M0 0L24 20L0 40" stroke="#fff" stroke-width="17" fill="none"/><rect x="24" y="11.5" width="36" height="17" fill="#fff"/><path d="M0 0L24 20L0 40" stroke="#007A4D" stroke-width="11" fill="none"/><rect x="24" y="14.5" width="36" height="11" fill="#007A4D"/><path d="M0 3L20 20L0 37Z" fill="#FFB612"/><path d="M0 7L15.5 20L0 33Z" fill="#000"/>`,
+    SG: () => H(['#EF3340', '#fff']) + `<circle cx="12" cy="10" r="6" fill="#fff"/><circle cx="14.5" cy="10" r="5" fill="#EF3340"/>`,
+    EE: () => H(['#0072CE', '#000', '#fff']),
+    FI: () => `<rect width="60" height="40" fill="#fff"/><path d="M18 0V40M0 20H60" stroke="#002F6C" stroke-width="10"/>`,
+    OECD: () => `<rect width="60" height="40" fill="#e5e7eb"/><text x="30" y="26" font-size="14" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" fill="#374151">OCDE</text>`
+  };
+  return (id, cls = 'flag') => `<svg class="${cls}" viewBox="0 0 60 40" aria-hidden="true">${(F[id] || (() => `<rect width="60" height="40" fill="#cbd5e1"/>`))()}</svg>`;
+})();
+
+/* Noyau : état, utilitaires, primitives graphiques SVG */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const C = Object.fromEntries(DATA.countries.map(c => [c.id, c]));
+const REF = Object.fromEntries(DATA.refs.map(c => [c.id, c]));
+const IDS = DATA.countries.map(c => c.id);
+const nameOf = id => (C[id] || REF[id] || { name: id === 'OECD' ? 'Moyenne OCDE' : (DATA.fieldsOther[id] || id) }).name;
+const fmt = (v, d = 0) => v == null || Number.isNaN(v) ? '·' : new Intl.NumberFormat('fr-FR', { maximumFractionDigits: d, minimumFractionDigits: d }).format(v);
+const sign = (v, d = 0) => v == null ? '·' : (v > 0 ? '+' : v < 0 ? '−' : '') + fmt(Math.abs(v), d);
+const esc = s => String(s).replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+const MOB = () => window.innerWidth < 720;
+const SERIES = ['--s1', '--s2', '--s3', '--s4', '--s5', '--s6', '--s7', '--s8'].map(v => `var(${v})`);
+
+const state = {
+  page: 'apercu', hi: 'FR', theme: null,
+  pisa: { dom: 'm', year: 2022, refs: true },
+  traj: { dom: 'm', sel: ['FR', 'JP', 'US', 'DE', 'KR'] },
+  ff: ['FR', 'JP', 'US'],
+  weights: { pisa: 25, nobel: 15, fields: 10, uni: 20, rd: 15, tert: 15 },
+  sort: { key: 'idx', asc: false }
+};
+try { const s = JSON.parse(localStorage.getItem('atlas-g20') || '{}'); Object.assign(state, s); } catch (e) { }
+const persist = () => { try { localStorage.setItem('atlas-g20', JSON.stringify({ hi: state.hi, traj: state.traj, ff: state.ff, weights: state.weights, theme: state.theme })); } catch (e) { } };
+
+/* Indicateurs dérivés */
+const pisaAvg = (id, y = 2022) => { const p = (y === 2022 ? DATA.pisa2022 : DATA.pisa2018)[id]; return p ? Math.round((p.m + p.r + p.s) / 3) : null; };
+const pisaLatest = id => DATA.pisa2022[id] ? { ...DATA.pisa2022[id], y: 2022 } : DATA.pisa2018[id] ? { ...DATA.pisa2018[id], y: 2018 } : null;
+const fieldsCount = id => DATA.fields.filter(f => f.c.includes(id)).length;
+const per10M = (v, id) => v == null ? null : v / (C[id].pop / 10);
+const uniTotal = id => DATA.uni[id].qs + DATA.uni[id].the + DATA.uni[id].arwu;
+
+/* Indicateurs unifiés : clé, libellé, unité, accès, décimales, sens (1 = plus c'est haut mieux c'est) */
+const IND = [
+  { k: 'pisaM', l: 'PISA mathématiques', u: 'points', get: id => (pisaLatest(id) || {}).m ?? null, d: 0, dir: 1, grp: 'PISA' },
+  { k: 'pisaR', l: 'PISA lecture', u: 'points', get: id => (pisaLatest(id) || {}).r ?? null, d: 0, dir: 1, grp: 'PISA' },
+  { k: 'pisaS', l: 'PISA sciences', u: 'points', get: id => (pisaLatest(id) || {}).s ?? null, d: 0, dir: 1, grp: 'PISA' },
+  { k: 'pisaA', l: 'PISA moyenne des trois domaines', u: 'points', get: id => { const p = pisaLatest(id); return p ? Math.round((p.m + p.r + p.s) / 3) : null; }, d: 0, dir: 1, grp: 'PISA' },
+  { k: 'imo', l: 'Olympiades de mathématiques 2025', u: 'points sur 252', get: id => (DATA.imo2025[id] || {}).score ?? null, d: 0, dir: 1, grp: 'Mathématiques' },
+  { k: 'imoRank', l: 'Rang mondial aux Olympiades 2025', u: 'rang', get: id => (DATA.imo2025[id] || {}).rank ?? null, d: 0, dir: -1, grp: 'Mathématiques' },
+  { k: 'nobel', l: 'Prix Nobel (1901 à 2025)', u: 'lauréats', get: id => DATA.nobel[id], d: 0, dir: 1, grp: 'Excellence' },
+  { k: 'nobelPc', l: 'Prix Nobel pour 10 millions d’habitants', u: 'lauréats', get: id => per10M(DATA.nobel[id], id), d: 1, dir: 1, grp: 'Excellence' },
+  { k: 'fields', l: 'Médailles Fields (1936 à 2026)', u: 'médaillés', get: id => fieldsCount(id), d: 0, dir: 1, grp: 'Excellence' },
+  { k: 'qs', l: 'Universités dans le top 100 QS 2027', u: 'établissements', get: id => DATA.uni[id].qs, d: 0, dir: 1, grp: 'Universités' },
+  { k: 'the', l: 'Universités dans le top 100 THE 2026', u: 'établissements', get: id => DATA.uni[id].the, d: 0, dir: 1, grp: 'Universités' },
+  { k: 'arwu', l: 'Universités dans le top 100 ARWU 2026', u: 'établissements', get: id => DATA.uni[id].arwu, d: 0, dir: 1, grp: 'Universités' },
+  { k: 'uni', l: 'Présences cumulées dans les trois top 100', u: 'présences', get: id => uniTotal(id), d: 0, dir: 1, grp: 'Universités' },
+  { k: 'bestQs', l: 'Rang QS 2027 de la meilleure université', u: 'rang', get: id => DATA.uni[id].bestQs, d: 0, dir: -1, grp: 'Universités' },
+  { k: 'rd', l: 'Dépense de R&D', u: '% du PIB', get: id => DATA.rd[id], d: 1, dir: 1, grp: 'Recherche' },
+  { k: 'res', l: 'Chercheurs par million d’habitants', u: 'chercheurs', get: id => DATA.researchers[id], d: 0, dir: 1, grp: 'Recherche' },
+  { k: 'spend', l: 'Dépense publique d’éducation', u: '% du PIB', get: id => DATA.spend[id], d: 1, dir: 1, grp: 'Financement' },
+  { k: 'tert', l: 'Diplômés du supérieur (25-34 ans)', u: '%', get: id => DATA.tertiary[id], d: 0, dir: 1, grp: 'Accès' },
+  { k: 'mean', l: 'Durée moyenne de scolarisation', u: 'années', get: id => DATA.meanYears[id], d: 1, dir: 1, grp: 'Accès' },
+  { k: 'exp', l: 'Durée attendue de scolarisation', u: 'années', get: id => DATA.expYears[id], d: 1, dir: 1, grp: 'Accès' },
+  { k: 'lit', l: 'Alphabétisation des adultes', u: '%', get: id => DATA.literacy[id], d: 0, dir: 1, grp: 'Accès' },
+  { k: 'ptr', l: 'Élèves par enseignant (primaire)', u: 'élèves', get: id => DATA.pupilTeacher[id], d: 0, dir: -1, grp: 'Accès' },
+  { k: 'intl', l: 'Étudiants internationaux accueillis', u: 'milliers', get: id => DATA.intlStudents[id], d: 0, dir: 1, grp: 'Attractivité' },
+  { k: 'pop', l: 'Population', u: 'millions', get: id => C[id].pop, d: 0, dir: 0, grp: 'Contexte' }
+];
+const INDK = Object.fromEntries(IND.map(i => [i.k, i]));
+const rankOf = (k, id) => {
+  const ind = INDK[k]; const v = ind.get(id); if (v == null) return null;
+  const vals = IDS.map(i => ind.get(i)).filter(x => x != null).sort((a, b) => ind.dir < 0 ? a - b : b - a);
+  return { r: vals.indexOf(v) + 1, n: vals.length };
+};
+
+/* Indice composite Savoir G20 : normalisation min-max 0-100 par pilier, moyenne pondérée des piliers disponibles */
+const PILLARS = [
+  { k: 'pisa', l: 'Compétences des élèves (PISA)', src: id => { const p = pisaLatest(id); return p ? (p.m + p.r + p.s) / 3 : null; }, log: false },
+  { k: 'nobel', l: 'Prix Nobel par habitant', src: id => per10M(DATA.nobel[id], id), log: true },
+  { k: 'fields', l: 'Médailles Fields', src: id => fieldsCount(id), log: true },
+  { k: 'uni', l: 'Universités dans les top 100', src: id => uniTotal(id), log: true },
+  { k: 'rd', l: 'Effort de recherche (R&D % PIB)', src: id => DATA.rd[id], log: false },
+  { k: 'tert', l: 'Diplômés du supérieur', src: id => DATA.tertiary[id], log: false }
+];
+function composite() {
+  const norm = {};
+  PILLARS.forEach(p => {
+    const raw = Object.fromEntries(IDS.map(id => [id, p.src(id)]));
+    const tr = v => v == null ? null : (p.log ? Math.log10(1 + v) : v);
+    const vals = IDS.map(id => tr(raw[id])).filter(v => v != null);
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    norm[p.k] = Object.fromEntries(IDS.map(id => [id, raw[id] == null ? null : Math.round(100 * (tr(raw[id]) - lo) / (hi - lo))]));
+  });
+  const w = state.weights;
+  const rows = IDS.map(id => {
+    let s = 0, tw = 0;
+    PILLARS.forEach(p => { const v = norm[p.k][id]; if (v != null && w[p.k] > 0) { s += v * w[p.k]; tw += w[p.k]; } });
+    return { id, score: tw ? Math.round(s / tw * 10) / 10 : 0, parts: Object.fromEntries(PILLARS.map(p => [p.k, norm[p.k][id]])), missing: PILLARS.filter(p => norm[p.k][id] == null).map(p => p.l) };
+  }).sort((a, b) => b.score - a.score);
+  rows.forEach((r, i) => r.rank = i + 1);
+  return rows;
+}
+
+/* Info-bulle */
+const tip = document.createElement('div'); tip.className = 'tip'; document.body.appendChild(tip);
+function showTip(e, html) { tip.innerHTML = html; tip.classList.add('on'); moveTip(e); }
+function moveTip(e) { const x = e.clientX, y = e.clientY; const w = tip.offsetWidth, h = tip.offsetHeight; tip.style.left = Math.min(x + 14, window.innerWidth - w - 8) + 'px'; tip.style.top = (y + h + 24 > window.innerHeight ? y - h - 12 : y + 14) + 'px'; }
+function hideTip() { tip.classList.remove('on'); }
+function bindTips(root) {
+  $$('[data-tip]', root).forEach(el => {
+    el.addEventListener('mouseenter', e => showTip(e, el.dataset.tip));
+    el.addEventListener('mousemove', moveTip);
+    el.addEventListener('mouseleave', hideTip);
+    el.addEventListener('touchstart', e => { showTip(e.touches[0], el.dataset.tip); setTimeout(hideTip, 2200); }, { passive: true });
+  });
+}
+const flagLine = (id, extra = '') => `<span class="rowlab">${FLAGS(id, 'flag sm')}<span>${esc(nameOf(id))}</span>${extra}</span>`;
+
+/* Barres horizontales triées. rows: [{id,v,label?,cls?}], opts: {ref:{v,label}, unit, d, max, min, hi} */
+function hbars(rows, o = {}) {
+  rows = rows.filter(r => r.v != null);
+  const m = MOB(); const d = o.d ?? 0, lw = m ? Math.min(o.lw ?? 150, 122) : (o.lw ?? 150), W = m ? 420 : (o.W ?? 760), rh = o.rh ?? 26, gap = 4, top = 6;
+  const H = top + rows.length * (rh + gap) + 24;
+  const vals = rows.map(r => r.v).concat(o.ref ? [o.ref.v] : []);
+  const min = o.min ?? 0, max = o.max ?? Math.max(...vals) * 1.05;
+  const x = v => lw + (W - lw - (W < 700 ? 46 : 60)) * (v - min) / (max - min);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.aria || '')}">`;
+  const ticks = niceTicks(min, max, 5);
+  s += `<g class="grid">${ticks.map(t => `<line x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${H - 22}"/>`).join('')}</g>`;
+  s += `<g class="axis">${ticks.map(t => `<text x="${x(t)}" y="${H - 6}" text-anchor="middle">${fmt(t, t % 1 ? 1 : 0)}</text>`).join('')}</g>`;
+  rows.forEach((r, i) => {
+    const y = top + i * (rh + gap), cls = r.cls || (r.id === (o.hi ?? state.hi) ? 'hi' : (REF[r.id] || r.id === 'OECD') ? 'ref' : '');
+    const name = r.label || nameOf(r.id);
+    const t = o.tip ? o.tip(r) : `<b>${esc(name)}</b>${fmt(r.v, d)} ${o.unit || ''}`;
+    s += `<g class="row" data-tip="${esc(t)}" data-id="${r.id}">`;
+    s += `<foreignObject x="0" y="${y}" width="${lw - 8}" height="${rh}"><div xmlns="http://www.w3.org/1999/xhtml" class="rowlab" style="height:${rh}px;font-size:12.5px;font-weight:${cls === 'hi' ? 700 : 500};color:var(--ink);white-space:nowrap;overflow:hidden">${FLAGS(r.id, 'flag sm')}<span>${esc(name)}</span></div></foreignObject>`;
+    const base = min < 0 ? 0 : min, neg = r.v < base, x0 = Math.min(x(base), x(r.v)), bw = Math.abs(x(r.v) - x(base));
+    const scls = min < 0 ? (neg ? 'neg' : 'pos') : '';
+    s += `<rect class="bar ${cls} ${scls}" x="${x0}" y="${y + 3}" width="${bw}" height="${rh - 6}" rx="3"/>`;
+    s += `<text class="val" x="${neg ? x0 - 6 : x0 + bw + 6}" y="${y + rh / 2 + 4}" text-anchor="${neg ? 'end' : 'start'}">${min < 0 ? sign(r.v, d) : fmt(r.v, d)}${o.suffix || ''}</text>`;
+    s += `<rect class="hit" x="0" y="${y}" width="${W}" height="${rh + gap}"/></g>`;
+  });
+  if (min < 0) s += `<line x1="${x(0)}" x2="${x(0)}" y1="${top}" y2="${H - 22}" stroke="var(--ink3)" stroke-width="1.2"/>`;
+  if (o.ref) s += `<line class="refline" x1="${x(o.ref.v)}" x2="${x(o.ref.v)}" y1="${top - 4}" y2="${H - 22}"/><rect x="${x(o.ref.v) - 34}" y="${H - 22}" width="68" height="14" rx="3" fill="var(--card)"/><text class="reftxt" x="${x(o.ref.v)}" y="${H - 11}" text-anchor="middle">${esc(o.ref.label)} ${fmt(o.ref.v, d)}</text>`;
+  return s + '</svg>';
+}
+function niceTicks(min, max, n) {
+  const span = max - min, step0 = span / n, p = Math.pow(10, Math.floor(Math.log10(step0))), c = step0 / p;
+  const step = (c >= 5 ? 10 : c >= 2 ? 5 : c >= 1 ? 2 : 1) * p;
+  const out = []; for (let t = Math.ceil(min / step) * step; t <= max + 1e-9; t += step) out.push(+t.toFixed(6)); return out;
+}
+
+/* Courbes : years, series [{id,vals,color,cls}], opts {ref, unit} */
+function lines(years, series, o = {}) {
+  const m = MOB(); const W = m ? 420 : 760, H = o.h ?? (m ? 300 : 340), ml = 40, mr = m ? 78 : 96, mt = 14, mb = 30;
+  const all = series.flatMap(s => s.vals).filter(v => v != null);
+  const min = o.min ?? Math.floor((Math.min(...all) - 10) / 20) * 20, max = o.max ?? Math.ceil((Math.max(...all) + 10) / 20) * 20;
+  const x = i => ml + (W - ml - mr) * i / (years.length - 1), y = v => mt + (H - mt - mb) * (1 - (v - min) / (max - min));
+  const ticks = niceTicks(min, max, 5);
+  let s = `<svg viewBox="0 0 ${W} ${H}">`;
+  s += `<g class="grid">${ticks.map(t => `<line x1="${ml}" x2="${W - mr}" y1="${y(t)}" y2="${y(t)}"/>`).join('')}</g>`;
+  s += `<g class="axis">${ticks.map(t => `<text x="${ml - 8}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join('')}${years.map((yr, i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${yr}</text>`).join('')}</g>`;
+  const path = vals => { let p = '', open = false; vals.forEach((v, i) => { if (v == null) { open = false; return; } p += (open ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); open = true; }); return p; };
+  // séries fantômes d'abord
+  series.filter(s => s.cls === 'ghost').forEach(sr => { s += `<path class="ln ghost" d="${path(sr.vals)}"/>`; });
+  const labels = [];
+  series.filter(s => s.cls !== 'ghost').forEach(sr => {
+    const stroke = sr.cls === 'oecd' ? '' : `stroke="${sr.color}"`;
+    s += `<path class="ln ${sr.cls || ''}" ${stroke} d="${path(sr.vals)}"/>`;
+    sr.vals.forEach((v, i) => { if (v == null) return; s += `<circle class="pt" cx="${x(i)}" cy="${y(v)}" r="4" fill="${sr.cls === 'oecd' ? 'var(--ink3)' : sr.color}" data-tip="<b>${esc(nameOf(sr.id))} ${years[i]}</b>${fmt(v)} ${o.unit || 'points'}"/>`; });
+    let li = sr.vals.length - 1; while (li >= 0 && sr.vals[li] == null) li--;
+    if (li >= 0) labels.push({ y: y(sr.vals[li]), x: x(li), t: sr.label || nameOf(sr.id), color: sr.cls === 'oecd' ? 'var(--ink3)' : sr.color });
+  });
+  // placement des étiquettes de fin sans chevauchement
+  labels.sort((a, b) => a.y - b.y); for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 14) labels[i].y = labels[i - 1].y + 14;
+  for (let i = labels.length - 1; i >= 0; i--) { if (labels[i].y > H - mb - 2) labels[i].y = H - mb - 2; if (i < labels.length - 1 && labels[i + 1].y - labels[i].y < 14) labels[i].y = labels[i + 1].y - 14; }
+  labels.forEach(l => { s += `<text class="dl" x="${W - mr + 10}" y="${l.y + 4}" fill="${l.color}">${esc(l.t)}</text>`; });
+  return s + '</svg>';
+}
+
+/* Haltères : rows [{id,a,b}] avec a = avant, b = après */
+function dumbbell(rows, o = {}) {
+  rows = rows.filter(r => r.a != null && r.b != null).sort((p, q) => (q.b - q.a) - (p.b - p.a));
+  const m = MOB(); const lw = m ? 118 : 150, W = m ? 420 : 760, rh = 26, gap = 4, top = 8, H = top + rows.length * (rh + gap) + 24;
+  const all = rows.flatMap(r => [r.a, r.b]); const min = Math.floor((Math.min(...all) - 10) / 10) * 10, max = Math.ceil((Math.max(...all) + 10) / 10) * 10;
+  const x = v => lw + (W - lw - 70) * (v - min) / (max - min); const ticks = niceTicks(min, max, 6);
+  let s = `<svg viewBox="0 0 ${W} ${H}"><g class="grid">${ticks.map(t => `<line x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${H - 22}"/>`).join('')}</g><g class="axis">${ticks.map(t => `<text x="${x(t)}" y="${H - 6}" text-anchor="middle">${t}</text>`).join('')}</g>`;
+  rows.forEach((r, i) => {
+    const y = top + i * (rh + gap) + rh / 2, d = r.b - r.a, up = d >= 0, hi = r.id === state.hi;
+    s += `<g data-tip="<b>${esc(nameOf(r.id))}</b>${o.la || '2018'} : ${r.a} · ${o.lb || '2022'} : ${r.b} · ${sign(d)} points">`;
+    s += `<foreignObject x="0" y="${y - rh / 2}" width="${lw - 8}" height="${rh}"><div xmlns="http://www.w3.org/1999/xhtml" class="rowlab" style="height:${rh}px;font-size:12.5px;font-weight:${hi ? 700 : 500};white-space:nowrap;overflow:hidden">${FLAGS(r.id, 'flag sm')}<span>${esc(nameOf(r.id))}</span></div></foreignObject>`;
+    s += `<line x1="${x(r.a)}" x2="${x(r.b)}" y1="${y}" y2="${y}" stroke="${up ? 'var(--good)' : 'var(--bad)'}" stroke-width="3" stroke-linecap="round" opacity=".55"/>`;
+    s += `<circle cx="${x(r.a)}" cy="${y}" r="5" fill="var(--card)" stroke="var(--ink3)" stroke-width="2"/><circle cx="${x(r.b)}" cy="${y}" r="5.5" fill="${up ? 'var(--good)' : 'var(--bad)'}"/>`;
+    s += `<text class="val" x="${W - 62}" y="${y + 4}" fill="${up ? 'var(--good)' : 'var(--bad)'}" style="fill:${up ? 'var(--good)' : 'var(--bad)'};font-weight:600">${sign(d)}</text>`;
+    s += `<rect class="hit" x="0" y="${y - rh / 2}" width="${W}" height="${rh + gap}"/></g>`;
+  });
+  return s + '</svg>';
+}
+
+/* Nuage de points avec droite d'ajustement. pts [{id,x,y}] */
+function scatter(pts, o = {}) {
+  pts = pts.filter(p => p.x != null && p.y != null);
+  const m = MOB(); const W = m ? 420 : 760, H = m ? 360 : 400, ml = 46, mr = 16, mt = 16, mb = 44;
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const xmin = o.xmin ?? Math.min(...xs) * 0.9, xmax = o.xmax ?? Math.max(...xs) * 1.05, ymin = o.ymin ?? Math.min(...ys) - 15, ymax = o.ymax ?? Math.max(...ys) + 15;
+  const x = v => ml + (W - ml - mr) * (v - xmin) / (xmax - xmin), y = v => mt + (H - mt - mb) * (1 - (v - ymin) / (ymax - ymin));
+  const tx = niceTicks(xmin, xmax, 6), ty = niceTicks(ymin, ymax, 5);
+  let s = `<svg viewBox="0 0 ${W} ${H}"><g class="grid">${ty.map(t => `<line x1="${ml}" x2="${W - mr}" y1="${y(t)}" y2="${y(t)}"/>`).join('')}${tx.map(t => `<line y1="${mt}" y2="${H - mb}" x1="${x(t)}" x2="${x(t)}"/>`).join('')}</g>`;
+  s += `<g class="axis">${ty.map(t => `<text x="${ml - 8}" y="${y(t) + 4}" text-anchor="end">${fmt(t, t % 1 ? 1 : 0)}</text>`).join('')}${tx.map(t => `<text x="${x(t)}" y="${H - mb + 16}" text-anchor="middle">${fmt(t, t % 1 ? 1 : 0)}</text>`).join('')}</g>`;
+  s += `<text x="${(ml + W - mr) / 2}" y="${H - 6}" text-anchor="middle" style="fill:var(--ink3);font-size:12px">${esc(o.xl || '')}</text><text transform="translate(12 ${(mt + H - mb) / 2}) rotate(-90)" text-anchor="middle" style="fill:var(--ink3);font-size:12px">${esc(o.yl || '')}</text>`;
+  // régression
+  const n = pts.length, mx = xs.reduce((a, b) => a + b, 0) / n, my = ys.reduce((a, b) => a + b, 0) / n;
+  let sxy = 0, sxx = 0, syy = 0; pts.forEach(p => { sxy += (p.x - mx) * (p.y - my); sxx += (p.x - mx) ** 2; syy += (p.y - my) ** 2; });
+  const b = sxy / sxx, a = my - b * mx, r2 = (sxy * sxy) / (sxx * syy);
+  s += `<line x1="${x(xmin)}" y1="${y(a + b * xmin)}" x2="${x(xmax)}" y2="${y(a + b * xmax)}" stroke="var(--ink3)" stroke-dasharray="5 4" stroke-width="1.5"/>`;
+  s += `<text x="${W - mr - 4}" y="${mt + 14}" text-anchor="end" class="reftxt">R² = ${r2.toFixed(2)}</text>`;
+  // étiquettes avec placement glouton
+  const placed = [];
+  pts.forEach(p => {
+    const px = x(p.x), py = y(p.y), hi = p.id === state.hi;
+    s += `<circle cx="${px}" cy="${py}" r="${hi ? 8 : 6}" fill="${hi ? 'var(--accent)' : 'var(--bar2)'}" stroke="var(--card)" stroke-width="2" data-tip="<b>${esc(nameOf(p.id))}</b>${esc(o.xl || 'x')} : ${fmt(p.x, o.xd ?? 1)}<br>${esc(o.yl || 'y')} : ${fmt(p.y, o.yd ?? 0)}"/>`;
+    const t = nameOf(p.id), w = t.length * 6.6 + 4, h = 13;
+    const cands = [[px + 9, py + 4, 'start'], [px - 9, py + 4, 'end'], [px, py - 10, 'middle'], [px, py + 18, 'middle']];
+    for (const [cx, cy, an] of cands) {
+      const x0 = an === 'start' ? cx : an === 'end' ? cx - w : cx - w / 2, box = { x0, x1: x0 + w, y0: cy - h, y1: cy };
+      if (box.x0 < ml || box.x1 > W - mr || box.y0 < mt || box.y1 > H - mb) continue;
+      if (placed.some(b2 => !(box.x1 < b2.x0 || box.x0 > b2.x1 || box.y1 < b2.y0 || box.y0 > b2.y1))) continue;
+      placed.push(box); s += `<text x="${cx}" y="${cy}" text-anchor="${an}" style="font-size:11.5px;fill:var(--ink2);font-weight:${hi ? 700 : 500}">${esc(t)}</text>`; break;
+    }
+  });
+  return s + '</svg>';
+}
+
+/* Radar : axes [{l}], series [{id,vals(0-100),color}] */
+function radar(axes, series) {
+  const W = 520, H = 460, cx = W / 2, cy = H / 2 + 6, R = 160, n = axes.length;
+  const ang = i => -Math.PI / 2 + i * 2 * Math.PI / n, pt = (i, v) => [cx + R * v / 100 * Math.cos(ang(i)), cy + R * v / 100 * Math.sin(ang(i))];
+  let s = `<svg viewBox="0 0 ${W} ${H}">`;
+  [25, 50, 75, 100].forEach(l => { s += `<polygon points="${axes.map((_, i) => pt(i, l).join(',')).join(' ')}" fill="none" stroke="var(--line)"/>`; });
+  axes.forEach((a, i) => { const [x2, y2] = pt(i, 100), [lx, ly] = pt(i, 118); s += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="var(--line2)"/><text x="${lx}" y="${ly + 4}" text-anchor="${Math.abs(Math.cos(ang(i))) < .2 ? 'middle' : Math.cos(ang(i)) > 0 ? 'start' : 'end'}" style="font-size:12px;fill:var(--ink2);font-weight:500">${esc(a.l)}</text>`; });
+  series.forEach(sr => {
+    const pts = axes.map((_, i) => pt(i, sr.vals[i] ?? 0));
+    s += `<polygon points="${pts.map(p => p.join(',')).join(' ')}" fill="${sr.color}" fill-opacity=".14" stroke="${sr.color}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="${sr.color}" stroke="var(--card)" stroke-width="2" data-tip="<b>${esc(nameOf(sr.id))}</b>${esc(axes[i].l)} : ${sr.vals[i] == null ? 'non disponible' : sr.vals[i] + ' / 100'}${sr.raw && sr.raw[i] != null ? '<br>Valeur : ' + sr.raw[i] : ''}"/>`; });
+  });
+  return s + '</svg>';
+}
+
+/* Tableau triable */
+function table(cols, rows, o = {}) {
+  const st = o.sort || state.sort;
+  const sorted = [...rows].sort((a, b) => { const va = a[st.key], vb = b[st.key]; if (va == null && vb == null) return 0; if (va == null) return 1; if (vb == null) return -1; return (typeof va === 'string' ? va.localeCompare(vb, 'fr') : va - vb) * (st.asc ? 1 : -1); });
+  let s = `<div class="tblwrap"><table class="tbl"><thead><tr>${cols.map(c => `<th class="${c.num ? 'num' : ''} ${st.key === c.k ? 'sorted' + (st.asc ? ' asc' : '') : ''}" data-k="${c.k}">${esc(c.l)}</th>`).join('')}</tr></thead><tbody>`;
+  sorted.forEach((r, i) => {
+    s += `<tr class="${r.id === state.hi ? 'hi' : ''}">${cols.map(c => { const v = r[c.k]; const best = c.best && v != null && v === c.best; return `<td class="${c.num ? 'num' : ''} ${best ? 'best' : ''}">${c.render ? c.render(v, r, i) : v == null ? '<span class="na">·</span>' : c.num ? fmt(v, c.d || 0) : esc(v)}</td>`; }).join('')}</tr>`;
+  });
+  return s + '</tbody></table></div>';
+}
+function bindTable(root, onsort) {
+  $$('th[data-k]', root).forEach(th => th.addEventListener('click', () => { const k = th.dataset.k; if (state.sort.key === k) state.sort.asc = !state.sort.asc; else { state.sort.key = k; state.sort.asc = false; } onsort(); }));
+}
+const cty = id => `<span class="cty">${FLAGS(id, 'flag sm')}<a href="#pays=${id}" data-go="${id}">${esc(nameOf(id))}</a></span>`;
+function toCSV(cols, rows) { const q = v => '"' + String(v ?? '').replace(/"/g, '""') + '"'; return [cols.map(c => q(c.l)).join(';'), ...rows.map(r => cols.map(c => q(c.csv ? c.csv(r) : r[c.k])).join(';'))].join('\n'); }
+function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + text], { type: 'text/csv;charset=utf-8' })); a.download = name; a.click(); }
+
+/* Pages */
+const PAGES = [
+  { id: 'apercu', l: 'Vue d’ensemble' }, { id: 'pisa', l: 'PISA 2022' }, { id: 'trajectoires', l: 'Trajectoires' }, { id: 'maths', l: 'Olympiades' },
+  { id: 'nobel', l: 'Prix Nobel' }, { id: 'fields', l: 'Médaille Fields' }, { id: 'universites', l: 'Universités' }, { id: 'recherche', l: 'Recherche et vaccins' },
+  { id: 'financement', l: 'Financement et accès' }, { id: 'face', l: 'Face à face' }, { id: 'pays', l: 'Fiche pays' }, { id: 'donnees', l: 'Données' }, { id: 'sources', l: 'Sources et méthode' }
+];
+const R = {};
+
+const hiPicker = () => `<label class="lbl">Pays mis en avant</label><select id="hiSel">${IDS.map(id => `<option value="${id}" ${id === state.hi ? 'selected' : ''}>${esc(nameOf(id))}</option>`).join('')}</select>`;
+
+/* 1. Vue d'ensemble */
+R.apercu = () => {
+  const comp = composite(); const top = comp.slice(0, 3);
+  const bestPisa = IDS.filter(id => DATA.pisa2022[id]).sort((a, b) => pisaAvg(b) - pisaAvg(a))[0];
+  const nobelTot = IDS.reduce((s, id) => s + DATA.nobel[id], 0);
+  const fieldsTot = DATA.fields.filter(f => f.c.some(c => C[c])).length;
+  return `
+  <div class="ph"><div class="kicker">Éducation, recherche et excellence dans les 19 pays du G20</div>
+  <h1>Qui forme le mieux ses élèves, ses chercheurs et ses prix Nobel ?</h1>
+  <p>Vingt-quatre indicateurs comparés pays par pays : les scores PISA de l’OCDE, les Olympiades de mathématiques, les prix Nobel, les médailles Fields, les trois grands classements d’universités, l’effort de recherche, les vaccins et le financement de l’école. Chaque graphique se lit avec le pays de votre choix mis en avant.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card stat"><div class="v">${pisaAvg(bestPisa)}<small>points</small></div><div class="l">Meilleur du G20 à PISA 2022</div><div class="d"><span class="rowlab">${FLAGS(bestPisa, 'flag sm')}<b>${esc(nameOf(bestPisa))}</b></span> moyenne des trois domaines (OCDE : ${pisaAvg('OECD')})</div></div>
+    <div class="card stat"><div class="v">${fmt(nobelTot)}</div><div class="l">Prix Nobel dans le G20 (1901 à 2025)</div><div class="d">Les États-Unis en comptent ${DATA.nobel.US}, soit ${Math.round(100 * DATA.nobel.US / nobelTot)} % du total du G20</div></div>
+    <div class="card stat"><div class="v">${fieldsTot}</div><div class="l">Médaillés Fields issus du G20</div><div class="d">Sur ${DATA.fields.length} médaillés depuis 1936 ; France et États-Unis en tête</div></div>
+    <div class="card stat"><div class="v">${IDS.reduce((s, id) => s + DATA.uni[id].qs, 0)}</div><div class="l">Universités du G20 dans le top 100 QS 2027</div><div class="d">Sur 100 : le G20 concentre l’essentiel de l’élite universitaire mondiale</div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card"><div class="exh">Indice Savoir G20 · synthèse</div><h3>Classement composite, pondération réglable</h3><p class="sub">Six piliers normalisés de 0 à 100 (min-max entre les 19 pays, échelle logarithmique pour les comptes de prix et d’universités). Déplacez les curseurs : le classement se recalcule.</p>
+      <div class="podium">${[1, 0, 2].map(i => { const r = top[i]; return `<div class="p ${i === 0 ? 'one' : ''}" data-go="${r.id}">${FLAGS(r.id, 'flag lg')}<div class="n">${esc(nameOf(r.id))}</div><div class="s">${fmt(r.score, 1)}</div><div class="m">${r.rank}${r.rank === 1 ? 'er' : 'e'} sur 19</div></div>`; }).join('')}</div>
+      <div class="wgt" style="margin-top:16px" id="wgt">${PILLARS.map(p => `<label><span>${esc(p.l)}</span><input type="range" min="0" max="40" step="5" value="${state.weights[p.k]}" data-w="${p.k}"><span class="w">${state.weights[p.k]} %</span></label>`).join('')}</div>
+      <div class="exh" style="margin-top:18px">Décomposition · ${esc(nameOf(state.hi))} · ${fmt(comp.find(r => r.id === state.hi).score, 1)} / 100, ${comp.find(r => r.id === state.hi).rank}${comp.find(r => r.id === state.hi).rank === 1 ? 'er' : 'e'} sur 19</div>
+      <div class="pil">${PILLARS.map(p => { const v = comp.find(r => r.id === state.hi).parts[p.k]; return `<div><span>${esc(p.l)}</span><span class="b"><i style="width:${v ?? 0}%"></i></span><span class="w">${v == null ? 'n.d.' : v}</span></div>`; }).join('')}</div>
+      <p class="note">Un pilier manquant (PISA pour la Chine, l’Inde, la Russie et l’Afrique du Sud) est neutralisé : la note du pays est la moyenne pondérée des piliers disponibles. Un indice reste une convention ; la page Sources détaille chaque choix.</p></div>
+    <div class="card"><div class="exh">Indice Savoir G20 · les 19 pays</div><h3>Classement complet</h3><p class="sub">Cliquez sur un pays pour ouvrir sa fiche.</p>
+      <div class="ranklist" id="ranklist">${comp.map(r => `<div class="rr ${r.rank === 1 ? 'top1' : ''} ${r.id === state.hi ? 'hi' : ''}" data-go="${r.id}" data-tip="<b>${esc(nameOf(r.id))}</b>${PILLARS.map(p => esc(p.l) + ' : ' + (r.parts[p.k] == null ? 'n.d.' : r.parts[p.k])).join('<br>')}"><span class="k">${r.rank}</span>${FLAGS(r.id, 'flag sm')}<span class="n">${esc(nameOf(r.id))}${r.missing.length ? `<small>sans ${r.missing.length === 1 ? 'PISA' : r.missing.length + ' piliers'}</small>` : ''}</span><span class="b"><i style="width:${r.score}%"></i></span><span class="v">${fmt(r.score, 1)}</span></div>`).join('')}</div></div>
+  </div>
+  <h2 style="margin:28px 0 4px">Les 19 pays</h2><p class="sub" style="color:var(--ink3);margin:0 0 12px">Trois repères par pays : score PISA moyen (dernier cycle disponible), prix Nobel, universités dans le top 100 QS. Cliquez pour la fiche complète.</p>
+  <div class="cgrid">${comp.map(r => { const id = r.id, p = pisaLatest(id); return `<button class="cc" data-go="${id}"><div class="hd">${FLAGS(id, 'flag')}<div><b>${esc(nameOf(id))}</b><small>${esc(C[id].region)} · ${fmt(C[id].pop)} M hab.</small></div><span class="rank">#${r.rank}</span></div><div class="kv"><div><b>${p ? Math.round((p.m + p.r + p.s) / 3) : '·'}</b>PISA ${p ? p.y : ''}</div><div><b>${DATA.nobel[id]}</b>Nobel</div><div><b>${DATA.uni[id].qs}</b>Top 100 QS</div></div><div class="fact">${esc(DATA.facts[id])}</div></button>`; }).join('')}</div>`;
+};
+
+/* 2. PISA */
+R.pisa = () => {
+  const st = state.pisa, src = st.year === 2022 ? DATA.pisa2022 : DATA.pisa2018;
+  const doms = { m: 'Mathématiques', r: 'Compréhension de l’écrit', s: 'Sciences', a: 'Moyenne des trois' };
+  const get = id => src[id] ? (st.dom === 'a' ? Math.round((src[id].m + src[id].r + src[id].s) / 3) : src[id][st.dom]) : null;
+  const ids = IDS.concat(st.refs ? Object.keys(REF) : []);
+  const rows = ids.map(id => ({ id, v: get(id) })).filter(r => r.v != null).sort((a, b) => b.v - a.v);
+  const absent = IDS.filter(id => !src[id]);
+  const hiV = get(state.hi), oecd = get('OECD');
+  const tblRows = IDS.filter(id => src[id]).map(id => ({ id, m: src[id].m, r: src[id].r, s: src[id].s, a: Math.round((src[id].m + src[id].r + src[id].s) / 3), dm: DATA.pisa2022[id] && DATA.pisa2018[id] ? DATA.pisa2022[id].m - DATA.pisa2018[id].m : null }));
+  const best = k => Math.max(...tblRows.map(r => r[k]));
+  return `
+  <div class="ph"><div class="kicker">Programme international pour le suivi des acquis des élèves (OCDE)</div><h1>PISA : ce que savent les élèves de 15 ans</h1>
+  <p>PISA évalue tous les trois ans des élèves de 15 ans en mathématiques, compréhension de l’écrit et sciences. L’échelle est calée sur une moyenne OCDE de 500 points en 2000 ; environ 20 points correspondent à une année de scolarité. Le cycle 2022 a été perturbé par la pandémie et marque une baisse historique dans presque tous les pays.</p></div>
+  <div class="controls">
+    <div class="seg" id="pisaDom">${Object.entries(doms).map(([k, l]) => `<button class="${st.dom === k ? 'on' : ''}" data-v="${k}">${l}</button>`).join('')}</div>
+    <div class="seg" id="pisaYear"><button class="${st.year === 2022 ? 'on' : ''}" data-v="2022">2022</button><button class="${st.year === 2018 ? 'on' : ''}" data-v="2018">2018</button></div>
+    <label class="chk"><input type="checkbox" id="pisaRefs" ${st.refs ? 'checked' : ''}> Repères hors G20 (Singapour, Estonie, Finlande)</label>
+    ${hiPicker()}
+  </div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 1 · PISA ${st.year}</div><h3>${doms[st.dom]} : ${esc(nameOf(rows.find(r => C[r.id]).id))} en tête du G20${hiV != null ? `, ${esc(nameOf(state.hi))} à ${sign(hiV - oecd)} points de la moyenne OCDE` : ''}</h3><p class="sub">Score moyen, ${st.year}. Ligne pointillée : moyenne OCDE. Barres grises : repères hors G20.</p>
+      <div class="chart">${hbars(rows, { ref: { v: oecd, label: 'OCDE' }, min: 300, max: 620, unit: 'points', aria: 'Scores PISA' })}</div>
+      <p class="note">Non participants en ${st.year} : ${absent.map(id => esc(nameOf(id))).join(', ')}. ${st.year === 2022 ? 'Pour la Chine et la Russie, voir le cycle 2018.' : 'La Chine est représentée par Pékin, Shanghai, le Jiangsu et le Zhejiang, quatre provinces parmi les plus riches du pays.'}</p></div>
+    <div class="card"><div class="exh">Exhibit 2 · Évolution 2018 à 2022</div><h3>Mathématiques : la chute la plus forte jamais mesurée</h3><p class="sub">Score 2018 (cercle vide) et 2022 (cercle plein), trié par évolution. La moyenne OCDE a perdu 15 points, l’équivalent de trois quarts d’année scolaire.</p>
+      <div class="chart">${dumbbell(IDS.map(id => ({ id, a: (DATA.pisa2018[id] || {}).m, b: (DATA.pisa2022[id] || {}).m })))}</div>
+      <p class="note">Seuls quatre pays du G20 progressent ou résistent : le Japon (+9), l’Arabie saoudite (+16), Türkiye (−1) et la Corée du Sud (+1). L’Allemagne (−25), la France (−21) et les Pays-Bas hors G20 signent les reculs les plus lourds de l’OCDE.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><div class="exh">Exhibit 3 · Tableau PISA ${st.year}</div><h3>Les trois domaines côte à côte</h3><p class="sub">Cliquez sur un en-tête pour trier. La meilleure valeur de chaque colonne est en bleu.</p>
+    ${table([{ k: 'id', l: 'Pays', render: (v) => cty(v) }, { k: 'm', l: 'Mathématiques', num: 1, best: best('m') }, { k: 'r', l: 'Lecture', num: 1, best: best('r') }, { k: 's', l: 'Sciences', num: 1, best: best('s') }, { k: 'a', l: 'Moyenne', num: 1, best: best('a') }, { k: 'dm', l: 'Maths 2018 à 2022', num: 1, render: v => v == null ? '<span class="na">·</span>' : `<span class="${v >= 0 ? 'pos' : 'neg'}">${sign(v)}</span>` }], tblRows, { sort: state.sortPisa || { key: 'a', asc: false } })}
+  </div>
+  <div class="grid g3" style="margin-top:16px">${['CN', 'IN', 'RU', 'ZA'].map(id => `<div class="card flat"><div class="rowlab">${FLAGS(id, 'flag')}<b>${esc(nameOf(id))}</b></div><p style="margin:8px 0 0;font-size:13.5px;color:var(--ink2)">${esc(DATA.pisaNotes[id])}</p></div>`).join('')}</div>`;
+};
+
+/* 3. Trajectoires */
+R.trajectoires = () => {
+  const st = state.traj, math = st.dom === 'm';
+  const years = math ? DATA.pisaYears : DATA.pisaReadYears, src = math ? DATA.pisaMathTrend : DATA.pisaReadTrend;
+  const avail = IDS.concat(Object.keys(REF)).filter(id => src[id]);
+  const sel = st.sel.filter(id => src[id]);
+  const series = avail.filter(id => !sel.includes(id)).map(id => ({ id, vals: src[id], cls: 'ghost' }))
+    .concat(sel.map((id, i) => ({ id, vals: src[id], color: SERIES[i % 8] })))
+    .concat([{ id: 'OECD', vals: src.OECD, cls: 'oecd', label: 'OCDE' }]);
+  const deltas = avail.map(id => { const v = src[id].filter(x => x != null); const first = src[id].findIndex(x => x != null), last = src[id].length - 1 - [...src[id]].reverse().findIndex(x => x != null); return { id, from: years[first], to: years[last], d: src[id][last] - src[id][first], n: v.length }; }).filter(d => d.n >= 3).sort((a, b) => b.d - a.d);
+  return `
+  <div class="ph"><div class="kicker">Deux décennies de PISA</div><h1>Trajectoires : qui monte, qui descend depuis 2000</h1>
+  <p>Chaque courbe suit un pays de cycle en cycle. Les courbes grises sont les autres pays : elles donnent l’enveloppe du G20. Sélectionnez jusqu’à huit pays.</p></div>
+  <div class="controls"><div class="seg" id="trajDom"><button class="${math ? 'on' : ''}" data-v="m">Mathématiques (2003 à 2022)</button><button class="${!math ? 'on' : ''}" data-v="r">Compréhension de l’écrit (2000 à 2022)</button></div></div>
+  <div class="chips" id="trajChips" style="margin-bottom:14px">${avail.map(id => { const i = sel.indexOf(id); return `<button class="chip ${i >= 0 ? 'on' : ''}" data-id="${id}"><span class="dot" style="${i >= 0 ? 'background:' + SERIES[i % 8] : ''}"></span>${FLAGS(id, 'flag sm')}${esc(nameOf(id))}</button>`; }).join('')}</div>
+  <div class="card"><div class="exh">Exhibit 4 · ${math ? 'mathématiques' : 'compréhension de l’écrit'}, score moyen par cycle</div><h3>${sel.length ? sel.map(id => esc(nameOf(id))).join(', ') : 'Aucun pays sélectionné'}</h3><p class="sub">Pointillés : moyenne OCDE. Les ruptures de courbe correspondent aux cycles non participés.</p>
+    <div class="chart">${lines(years, series, { min: 340, max: math ? 620 : 580 })}</div>
+    <div class="legend">${sel.map((id, i) => `<span><i style="background:${SERIES[i % 8]}"></i>${esc(nameOf(id))}</span>`).join('')}<span><i class="dash"></i>Moyenne OCDE</span><span><i></i>Autres pays</span></div>
+    <p class="note">Chine : Shanghai seule en 2009 et 2012, quatre provinces ensuite, d’où la cassure de 2015. Royaume-Uni 2003 et Argentine 2015 exclus par l’OCDE. La Russie et la Chine n’ont pas participé en 2022.</p></div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><div class="exh">Exhibit 5 · variation entre le premier et le dernier cycle participé</div><h3>${math ? 'Türkiye, Brésil et Mexique progressent ; la Finlande, la Corée et l’Australie reculent le plus' : 'Les pays partis de bas progressent, les pays en tête en 2000 reculent'}</h3><p class="sub">Points gagnés ou perdus. Attention aux fenêtres différentes : la période est indiquée pour chaque pays.</p>
+      <div class="chart">${hbars(deltas.map(d => ({ id: d.id, v: d.d })), { min: Math.min(-60, ...deltas.map(d => d.d)) - 5, max: Math.max(...deltas.map(d => d.d)) + 10, tip: r => { const d = deltas.find(x => x.id === r.id); return `<b>${esc(nameOf(r.id))}</b>${sign(d.d)} points entre ${d.from} et ${d.to}`; } })}</div></div>
+    <div class="card"><div class="exh">Lecture</div><h3>Ce que disent ces courbes</h3>
+      <div class="callout" style="margin-bottom:10px"><b>Le Japon est le seul grand pays stable au sommet.</b> Entre 2003 et 2022 son score de mathématiques oscille entre 523 et 536 points, quand la Finlande, modèle des années 2000, perd 60 points.</div>
+      <div class="callout" style="margin-bottom:10px"><b>La France et l’Allemagne ont décroché en 2022.</b> Les deux pays étaient au-dessus de la moyenne OCDE depuis 2012 ; ils perdent 21 et 25 points en un cycle, davantage que la moyenne OCDE (−15).</div>
+      <div class="callout"><b>Les pays émergents progressent sur vingt ans.</b> Türkiye (+30 points depuis 2003), le Brésil (+23) et le Mexique (+10) comptent parmi les rares trajectoires ascendantes, même si l’écart avec le haut du tableau reste supérieur à 100 points, soit cinq années de scolarité.</div></div>
+  </div>`;
+};
+
+/* 4. Olympiades */
+R.maths = () => {
+  const rows = IDS.filter(id => DATA.imo2025[id]).map(id => ({ id, v: DATA.imo2025[id].score })).sort((a, b) => b.v - a.v);
+  const med = IDS.filter(id => DATA.imo2025[id]).map(id => ({ id, ...DATA.imo2025[id] })).sort((a, b) => a.rank - b.rank);
+  return `
+  <div class="ph"><div class="kicker">Olympiades internationales de mathématiques, 66e édition, Sunshine Coast (Australie), juillet 2025</div><h1>Olympiades : l’élite lycéenne des mathématiques</h1>
+  <p>Chaque pays aligne six lycéens qui résolvent six problèmes notés sur 7, soit 252 points maximum par équipe. Les Olympiades mesurent la pointe du système, là où PISA mesure sa base : la Chine, absente de PISA 2022, y règne sans partage.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 6 · IMO 2025, score d’équipe</div><h3>La Chine à 231 points sur 252 avec six médailles d’or sur six</h3><p class="sub">Score total de l’équipe. 110 pays participants ; la Russie n’est pas invitée depuis 2022.</p>
+      <div class="chart">${hbars(rows, { min: 0, max: 252, unit: 'points' })}</div></div>
+    <div class="card"><div class="exh">Exhibit 7 · médailles 2025</div><h3>Rang mondial et médailles par équipe</h3><p class="sub">Or, argent, bronze : chaque élève est médaillé selon son score individuel.</p>
+      ${table([{ k: 'rank', l: 'Rang mondial', num: 1 }, { k: 'id', l: 'Pays', render: v => cty(v) }, { k: 'score', l: 'Score', num: 1, best: 231 }, { k: 'g', l: 'Médailles', render: (v, r) => `<span class="medals"><i><b class="m-g"></b>${r.g}</i><i><b class="m-s"></b>${r.s}</i><i><b class="m-b"></b>${r.b}</i></span>` }], med, { sort: { key: 'rank', asc: true } })}
+      <p class="note">L’Inde (7e) et Türkiye (10e) devancent le Royaume-Uni, l’Allemagne et la France : les Olympiades récompensent des filières d’excellence très sélectives, indépendantes du niveau moyen des élèves.</p></div>
+  </div>`;
+};
+
+/* 5. Nobel */
+R.nobel = () => {
+  const rows = IDS.map(id => ({ id, v: DATA.nobel[id] })).sort((a, b) => b.v - a.v);
+  const pc = IDS.map(id => ({ id, v: per10M(DATA.nobel[id], id) })).sort((a, b) => b.v - a.v);
+  return `
+  <div class="ph"><div class="kicker">Prix Nobel de physique, chimie, médecine, littérature, paix et économie, 1901 à 2025</div><h1>Prix Nobel : le palmarès du siècle</h1>
+  <p>Comptage par nationalité des lauréats (une double nationalité compte pour chaque pays). Les États-Unis dominent depuis 1945 grâce à l’immigration scientifique et au financement fédéral de la recherche ; l’Europe a dominé la première moitié du siècle.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 8 · lauréats par pays</div><h3>Les États-Unis comptent plus de lauréats que les 18 autres pays du G20 réunis</h3><p class="sub">Nombre de lauréats, toutes catégories, 1901 à 2025.</p>
+      <div class="chart">${hbars(rows, { unit: 'lauréats' })}</div></div>
+    <div class="card"><div class="exh">Exhibit 9 · rapporté à la population</div><h3>Par habitant, le Royaume-Uni, l’Allemagne et la France dépassent les États-Unis</h3><p class="sub">Lauréats pour 10 millions d’habitants (population 2024).</p>
+      <div class="chart">${hbars(pc, { d: 1, unit: 'lauréats pour 10 M' })}</div>
+      <p class="note">Avec 21 lauréats pour 10 millions d’habitants, le Royaume-Uni fait presque le double des États-Unis (12,6). Les pays très peuplés (Inde, Chine, Indonésie) sont mécaniquement pénalisés par ce ratio.</p></div>
+  </div>
+  <h2 style="margin:28px 0 4px">Lauréats récents, 2020 à 2025</h2><p class="sub" style="color:var(--ink3);margin:0 0 12px">Sciences et économie principalement : les découvertes qui ont marqué ces six dernières années.</p>
+  <div class="grid g3 laur">${DATA.nobelRecent.map(n => `<div class="it"><div class="y">${n.year}</div><div><div class="f">${esc(n.field)}</div><div class="n">${esc(n.names)}</div><div class="w">${esc(n.why)}</div><div class="fl">${n.c.map(c => FLAGS(c, 'flag sm')).join('')}</div></div></div>`).join('')}</div>
+  <div class="card" style="margin-top:16px"><div class="exh">Exhibit 10 · premier lauréat</div><h3>Année du premier prix Nobel de chaque pays</h3>
+    ${table([{ k: 'id', l: 'Pays', render: v => cty(v) }, { k: 'first', l: 'Premier prix', num: 1, render: v => v == null ? '<span class="na">aucun lauréat</span>' : String(v) }, { k: 'n', l: 'Lauréats', num: 1 }, { k: 'pc', l: 'Pour 10 M hab.', num: 1, d: 1 }], IDS.map(id => ({ id, first: DATA.nobelFirst[id], n: DATA.nobel[id], pc: per10M(DATA.nobel[id], id) })), { sort: { key: 'n', asc: false } })}</div>`;
+};
+
+/* 6. Fields */
+R.fields = () => {
+  const counts = IDS.map(id => ({ id, v: fieldsCount(id) })).filter(r => r.v > 0).sort((a, b) => b.v - a.v);
+  const zero = IDS.filter(id => fieldsCount(id) === 0);
+  const years = [...new Set(DATA.fields.map(f => f.y))];
+  // frise : une colonne par édition, un point par médaillé
+  const W = 760, colw = (W - 40) / years.length, H = 200;
+  let strip = `<svg viewBox="0 0 ${W} ${H}">`;
+  years.forEach((y, i) => {
+    const meds = DATA.fields.filter(f => f.y === y); const x = 20 + colw * i + colw / 2;
+    strip += `<text x="${x}" y="${H - 6}" text-anchor="middle" style="font-size:10px;fill:var(--ink4)" transform="rotate(-60 ${x} ${H - 6})">${y}</text>`;
+    meds.forEach((m, j) => { const g20 = m.c.find(c => C[c]); const hi = m.c.includes(state.hi); strip += `<circle cx="${x}" cy="${H - 34 - j * 26}" r="10" fill="${hi ? 'var(--accent)' : g20 ? 'var(--bar2)' : 'var(--ref)'}" data-tip="<b>${esc(m.n)}</b>${m.y} · ${m.c.map(nameOf).join(' / ')}"/>`; });
+  });
+  strip += '</svg>';
+  return `
+  <div class="ph"><div class="kicker">Union mathématique internationale, tous les quatre ans depuis 1936, lauréats de moins de 40 ans</div><h1>Médaille Fields : le Nobel des mathématiques</h1>
+  <p>${DATA.fields.length} médaillés en 24 éditions. La France est le seul pays qui rivalise avec les États-Unis, grâce à l’école Bourbaki, aux Écoles normales et à l’IHES ; l’école russe a dominé les années 1970 à 2010. L’édition 2026 (Philadelphie) a distingué Yu Deng, John Pardon, Jacob Tsimerman et Hong Wang, troisième femme médaillée de l’histoire.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 11 · médaillés par pays</div><h3>États-Unis ${fieldsCount('US')}, France ${fieldsCount('FR')}, Russie ${fieldsCount('RU')}, Royaume-Uni ${fieldsCount('GB')}</h3><p class="sub">Nationalité au moment du prix ; double nationalité comptée pour chaque pays.</p>
+      <div class="chart">${hbars(counts, { unit: 'médaillés' })}</div>
+      <p class="note">Aucun médaillé : ${zero.map(nameOf).join(', ')}. L’Inde est le pays de naissance d’Akshay Venkatesh (2018, Australie) et l’Iran celui de Maryam Mirzakhani (2014) et Caucher Birkar (2018).</p></div>
+    <div class="card"><div class="exh">Exhibit 12 · frise des 24 éditions</div><h3>Depuis 2000, seize médaillés sur vingt-six sont américains ou français, et plus de la moitié d\u2019entre eux sont nés dans un autre pays</h3><p class="sub">Un point par médaillé, bleu foncé = G20, clair = hors G20, accent = pays mis en avant.</p>
+      <div class="chart">${strip}</div>
+      <p class="note">L’Ukraine (Viazovska, 2022), l’Iran, le Viêt Nam (Ngô Bảo Châu, 2010), Israël et la Nouvelle-Zélande figurent parmi les pays hors G20 médaillés.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><div class="exh">Exhibit 13 · liste complète</div><h3>Tous les médaillés, de 1936 à 2026</h3>
+    ${table([{ k: 'y', l: 'Année', num: 1, render: v => v }, { k: 'n', l: 'Médaillé', render: (v, r) => `<b>${esc(v)}</b>` }, { k: 'c', l: 'Pays', render: v => `<span class="rowlab">${v.map(c => `${FLAGS(c, 'flag sm')}${esc(nameOf(c))}`).join(' · ')}</span>` }], DATA.fields.map(f => ({ ...f, id: f.c.find(c => C[c]) })), { sort: { key: 'y', asc: false } })}</div>`;
+};
+
+/* 7. Universités */
+R.universites = () => {
+  const mk = k => IDS.map(id => ({ id, v: DATA.uni[id][k] })).filter(r => r.v > 0).sort((a, b) => b.v - a.v);
+  const pc = IDS.map(id => ({ id, v: uniTotal(id) / 3 / (C[id].pop / 10) })).filter(r => r.v > 0).sort((a, b) => b.v - a.v);
+  const rows = IDS.map(id => ({ id, ...DATA.uni[id], tot: uniTotal(id) }));
+  return `
+  <div class="ph"><div class="kicker">QS World University Rankings 2027 · Times Higher Education 2026 · Classement de Shanghai (ARWU) 2026</div><h1>Universités : les trois classements de référence</h1>
+  <p>Chaque classement a ses biais : QS pèse la réputation et l’internationalisation, THE l’enseignement et la recherche, ARWU les prix Nobel et les publications. Les regarder ensemble corrige une partie de ces biais. Nombre d’établissements de chaque pays dans le top 100.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g3">
+    <div class="card"><div class="exh">Exhibit 14 · QS 2027</div><h3>Top 100 QS</h3><p class="sub">MIT premier pour la quinzième année. 1 504 établissements classés.</p><div class="chart">${hbars(mk('qs'), { unit: 'établissements', lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 15 · THE 2026</div><h3>Top 100 Times Higher Education</h3><p class="sub">Oxford première pour la dixième année consécutive. 2 191 établissements classés.</p><div class="chart">${hbars(mk('the'), { unit: 'établissements', lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 16 · ARWU 2026</div><h3>Top 100 du classement de Shanghai</h3><p class="sub">Harvard première depuis 2003. La Chine passe de 13 à 16 établissements en un an.</p><div class="chart">${hbars(mk('arwu'), { unit: 'établissements', lw: 134, W: 400, rh: 24 })}</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><div class="exh">Exhibit 17 · rapporté à la population</div><h3>L’Australie et le Royaume-Uni, champions par habitant</h3><p class="sub">Présences moyennes dans les trois top 100, pour 10 millions d’habitants.</p><div class="chart">${hbars(pc, { d: 2, unit: 'pour 10 M hab.' })}</div></div>
+    <div class="card"><div class="exh">Exhibit 18 · meilleur établissement</div><h3>La meilleure université de chaque pays</h3>
+      ${table([{ k: 'id', l: 'Pays', render: v => cty(v) }, { k: 'best', l: 'Établissement phare' }, { k: 'tot', l: 'Présences (3 top 100)', num: 1, best: Math.max(...rows.map(r => r.tot)) }], rows, { sort: { key: 'tot', asc: false } })}
+      <p class="note">Rangs QS 2027 sauf mention. Pour les pays sans établissement dans le top 100, le rang indiqué est approximatif (tranche du classement).</p></div>
+  </div>`;
+};
+
+/* 8. Recherche et vaccins */
+R.recherche = () => {
+  const rd = IDS.map(id => ({ id, v: DATA.rd[id] })).sort((a, b) => b.v - a.v);
+  const res = IDS.map(id => ({ id, v: DATA.researchers[id] })).sort((a, b) => b.v - a.v);
+  const byC = {}; DATA.vaccines.forEach(v => { (byC[v.c] = byC[v.c] || []).push(v); });
+  const vrows = Object.entries(byC).map(([id, l]) => ({ id, v: l.length })).sort((a, b) => b.v - a.v);
+  return `
+  <div class="ph"><div class="kicker">Effort de recherche, chercheurs, vaccins</div><h1>Recherche et vaccins : de l’école au laboratoire</h1>
+  <p>Un système éducatif se juge aussi à ce qu’il produit en aval : la part du PIB consacrée à la recherche, la densité de chercheurs et, très concrètement, les vaccins qui ont changé la vie de milliards de personnes.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 19 · dépense intérieure de R&D</div><h3>La Corée du Sud consacre 5 % de son PIB à la recherche, le Mexique 0,3 %</h3><p class="sub">Dépense intérieure brute de R&D, publique et privée, en % du PIB (OCDE, UNESCO, 2022 ou 2023).</p>
+      <div class="chart">${hbars(rd, { d: 1, suffix: ' %', unit: '% du PIB' })}</div></div>
+    <div class="card"><div class="exh">Exhibit 20 · densité de chercheurs</div><h3>9 100 chercheurs par million d’habitants en Corée, 260 en Inde</h3><p class="sub">Chercheurs en équivalent temps plein par million d’habitants (UNESCO, dernière année disponible).</p>
+      <div class="chart">${hbars(res, { unit: 'chercheurs par million' })}</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 21 · 230 ans de vaccins</div><h3>De Jenner à l’ARN messager : les jalons et leur pays d’origine</h3><p class="sub">Découvertes fondatrices, vaccins contre la COVID-19 et grands pôles de production.</p>
+      <div class="tl">${DATA.vaccines.map(v => `<div class="it"><div class="y">${v.y}</div>${FLAGS(v.c, 'flag')}<div><div class="t">${esc(v.name)}${v.kind === 'covid' ? '<span class="tag">COVID-19</span>' : v.kind === 'production' ? '<span class="tag gray">production</span>' : ''}</div><div class="w">${esc(v.who)}</div><div class="h">${esc(v.how)}</div></div></div>`).join('')}</div></div>
+    <div>
+      <div class="card"><div class="exh">Exhibit 22 · jalons par pays</div><h3>États-Unis, Royaume-Uni et France : les trois berceaux de la vaccinologie</h3><p class="sub">Nombre de jalons de la frise ci-contre attribués à chaque pays.</p><div class="chart">${hbars(vrows, { unit: 'jalons' })}</div></div>
+      <div class="card" style="margin-top:16px"><div class="exh">COVID-19</div><h3>Cinq technologies, six pays</h3>
+        <div class="callout" style="margin-bottom:8px"><b>ARN messager (Allemagne, États-Unis)</b>BioNTech-Pfizer et Moderna : première autorisation au monde en décembre 2020, prix Nobel 2023 pour Karikó et Weissman.</div>
+        <div class="callout" style="margin-bottom:8px"><b>Vecteur adénoviral (Royaume-Uni, Russie)</b>Oxford-AstraZeneca, vaccin le plus distribué via COVAX ; Spoutnik V, premier enregistré (août 2020).</div>
+        <div class="callout" style="margin-bottom:8px"><b>Virus inactivé (Chine, Inde)</b>Sinovac et Sinopharm, plus de 3 milliards de doses ; Covaxin de Bharat Biotech.</div>
+        <div class="callout"><b>Production (Inde, Corée, Brésil, Indonésie)</b>Le Serum Institute of India a produit à lui seul plus de 2 milliards de doses de Covishield ; SK bioscience, Butantan et Bio Farma ont approvisionné leurs régions.</div></div>
+    </div>
+  </div>`;
+};
+
+/* 9. Financement et accès */
+R.financement = () => {
+  const mk = (obj, dir = 1) => IDS.map(id => ({ id, v: obj[id] })).sort((a, b) => dir * (b.v - a.v));
+  const pts = IDS.filter(id => DATA.pisa2022[id]).map(id => ({ id, x: DATA.spend[id], y: DATA.pisa2022[id].m }));
+  const pts2 = IDS.filter(id => DATA.pisa2022[id]).map(id => ({ id, x: DATA.tertiary[id], y: DATA.pisa2022[id].m }));
+  return `
+  <div class="ph"><div class="kicker">Dépense publique, diplômés, années d’école, taille des classes, attractivité</div><h1>Financement et accès : ce que les États investissent, ce que les jeunes en retirent</h1>
+  <p>Dépenser plus ne garantit pas de mieux apprendre : l’Arabie saoudite et l’Afrique du Sud consacrent à l’école une part de leur PIB supérieure à celle du Japon ou de la Corée, avec des résultats PISA inverses. La qualité des enseignants, la sélection et la culture scolaire pèsent davantage que le budget seul.</p></div>
+  <div class="controls">${hiPicker()}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))">
+    <div class="card"><div class="exh">Exhibit 23 · budget et résultats</div><h3>La dépense publique n’explique presque rien des écarts de score</h3><p class="sub">Dépense publique d’éducation (% du PIB) et score PISA 2022 en mathématiques, 15 pays du G20 participants. Ligne pointillée : ajustement linéaire.</p>
+      <div class="chart">${scatter(pts, { xl: 'Dépense publique d’éducation, % du PIB', yl: 'PISA 2022 mathématiques', xmin: 3, xmax: 8.5, xd: 1 })}</div>
+      <p class="note">Le R² proche de zéro dit que, entre pays du G20, la part de PIB dépensée ne prédit pas le score. Le Japon (3,4 % du PIB) obtient 536 points, l’Arabie saoudite (7,8 %) 389.</p></div>
+    <div class="card"><div class="exh">Exhibit 24 · diplômés et résultats</div><h3>Les pays où les jeunes adultes sont les plus diplômés sont aussi ceux où les élèves réussissent</h3><p class="sub">Part des 25-34 ans diplômés du supérieur et score PISA 2022 en mathématiques.</p>
+      <div class="chart">${scatter(pts2, { xl: 'Diplômés du supérieur parmi les 25-34 ans, %', yl: 'PISA 2022 mathématiques', xmin: 10, xmax: 78, xd: 0 })}</div></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><div class="exh">Exhibit 25</div><h3>Dépense publique d’éducation</h3><p class="sub">% du PIB, dernière année disponible</p><div class="chart">${hbars(mk(DATA.spend), { d: 1, suffix: ' %', lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 26</div><h3>Diplômés du supérieur, 25-34 ans</h3><p class="sub">% de la classe d’âge</p><div class="chart">${hbars(mk(DATA.tertiary), { suffix: ' %', lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 27</div><h3>Durée moyenne de scolarisation</h3><p class="sub">années, adultes de 25 ans et plus (PNUD)</p><div class="chart">${hbars(mk(DATA.meanYears), { d: 1, lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 28</div><h3>Durée attendue de scolarisation</h3><p class="sub">années qu’un enfant entrant à l’école peut espérer (PNUD)</p><div class="chart">${hbars(mk(DATA.expYears), { d: 1, lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 29</div><h3>Élèves par enseignant, primaire</h3><p class="sub">Plus la barre est courte, mieux l’élève est encadré</p><div class="chart">${hbars(mk(DATA.pupilTeacher, -1), { lw: 134, W: 400, rh: 24 })}</div></div>
+    <div class="card"><div class="exh">Exhibit 30</div><h3>Étudiants internationaux accueillis</h3><p class="sub">milliers, ordre de grandeur 2023</p><div class="chart">${hbars(mk(DATA.intlStudents), { lw: 134, W: 400, rh: 24, unit: 'milliers' })}</div></div>
+  </div>`;
+};
+
+/* 10. Face à face */
+const FFAX = [
+  { l: 'PISA', k: 'pisaA' }, { l: 'Olympiades', k: 'imo' }, { l: 'Nobel / hab.', k: 'nobelPc' }, { l: 'Fields', k: 'fields' },
+  { l: 'Universités', k: 'uni' }, { l: 'R&D', k: 'rd' }, { l: 'Diplômés', k: 'tert' }, { l: 'Scolarisation', k: 'mean' }
+];
+const normInd = (k, id) => { const ind = INDK[k]; const v = ind.get(id); if (v == null) return null; const vals = IDS.map(i => ind.get(i)).filter(x => x != null); const lo = Math.min(...vals), hi = Math.max(...vals); const n = 100 * (v - lo) / (hi - lo); return Math.round(ind.dir < 0 ? 100 - n : n); };
+R.face = () => {
+  const sel = state.ff.filter(Boolean);
+  const series = sel.map((id, i) => ({ id, color: SERIES[i], vals: FFAX.map(a => normInd(a.k, id)), raw: FFAX.map(a => { const v = INDK[a.k].get(id); return v == null ? null : fmt(v, INDK[a.k].d) + ' ' + INDK[a.k].u; }) }));
+  const cols = [{ k: 'l', l: 'Indicateur' }].concat(sel.map((id, i) => ({ k: id, l: nameOf(id), num: 1, render: (v, r) => { const ind = INDK[r.k]; if (v == null) return '<span class="na">n.d.</span>'; const vals = sel.map(s => ind.get(s)).filter(x => x != null); const best = ind.dir < 0 ? Math.min(...vals) : Math.max(...vals); const rk = rankOf(r.k, id); return `<span style="${v === best && ind.dir ? 'color:var(--accent);font-weight:700' : ''}">${fmt(v, ind.d)}</span> <span class="na" style="font-size:11px">${rk ? rk.r + '/' + rk.n : ''}</span>`; } })));
+  const rows = IND.filter(i => i.k !== 'pop').map(i => { const r = { k: i.k, l: `${i.l} (${i.u})`, id: null }; sel.forEach(id => r[id] = i.get(id)); return r; });
+  return `
+  <div class="ph"><div class="kicker">Comparaison directe</div><h1>Face à face : deux à quatre pays, tous les indicateurs</h1><p>Le radar ramène chaque indicateur sur une échelle de 0 (le moins bon du G20) à 100 (le meilleur du G20). Le tableau donne les valeurs brutes, la meilleure en bleu, avec le rang de chaque pays parmi les 19.</p></div>
+  <div class="ff-sel controls" id="ffSel">${sel.map((id, i) => `<span class="slot" style="--c:${SERIES[i]}">${FLAGS(id, 'flag sm')}<select data-i="${i}">${IDS.map(x => `<option value="${x}" ${x === id ? 'selected' : ''}>${esc(nameOf(x))}</option>`).join('')}</select>${sel.length > 2 ? `<button class="rm" data-rm="${i}" title="Retirer">×</button>` : ''}</span>`).join('')}${sel.length < 4 ? '<button class="btn" id="ffAdd">+ Ajouter un pays</button>' : ''}</div>
+  <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))">
+    <div class="card"><div class="exh">Exhibit 31 · profil normalisé</div><h3>${sel.map(nameOf).join(' · ')}</h3><p class="sub">0 = valeur la plus basse du G20, 100 = la plus haute. Un axe manquant (PISA pour la Chine, l’Inde, la Russie, l’Afrique du Sud) est mis à zéro sur le radar et marqué « n.d. » dans le tableau.</p>
+      <div class="chart" style="max-width:560px;margin:0 auto">${radar(FFAX, series)}</div>
+      <div class="legend">${sel.map((id, i) => `<span><i class="sq" style="background:${SERIES[i]}"></i>${esc(nameOf(id))}</span>`).join('')}</div></div>
+    <div class="card"><div class="exh">Exhibit 32 · valeurs brutes</div><h3>Tous les indicateurs</h3>${table(cols, rows, { sort: { key: 'none' } })}</div>
+  </div>`;
+};
+
+/* 11. Fiche pays */
+R.pays = () => {
+  const id = state.hi, c = C[id], comp = composite(), cr = comp.find(r => r.id === id), p = pisaLatest(id);
+  const kp = (k, extra) => { const ind = INDK[k], v = ind.get(id), rk = rankOf(k, id); return `<div class="kpi"><div class="v">${v == null ? '<span class="na">n.d.</span>' : fmt(v, ind.d)}<small>${esc(v === 1 && ind.u.endsWith('s') ? ind.u.slice(0, -1) : ind.u)}</small></div><div class="l">${esc(ind.l)}${extra || ''}</div><div class="r">${rk ? `${rk.r}${rk.r === 1 ? 'er' : 'e'} sur ${rk.n}` : 'non mesuré'}</div></div>`; };
+  const math = DATA.pisaMathTrend[id], years = DATA.pisaYears;
+  const flist = DATA.fields.filter(f => f.c.includes(id)), nl = DATA.nobelRecent.filter(n => n.c.includes(id)), vl = DATA.vaccines.filter(v => v.c === id);
+  return `
+  <div class="ph dossier"><div class="kicker">Fiche pays · ${esc(c.region)} · ${fmt(c.pop)} millions d’habitants</div>
+  <div class="hero">${FLAGS(id, 'flag lg')}<div><h1>${esc(c.name)}</h1><p style="margin:4px 0 0">${esc(c.system)} · langue d’enseignement : ${esc(c.langue)}</p></div></div></div>
+  <div class="controls">${hiPicker()}<span class="lbl">Indice Savoir G20 : <b style="color:var(--ink)">${fmt(cr.score, 1)} / 100</b>, ${cr.rank}${cr.rank === 1 ? 'er' : 'e'} sur 19</span></div>
+  <div class="callout" style="margin-bottom:16px"><b>À retenir</b>${esc(DATA.facts[id])}</div>
+  <div class="kpis">${['pisaM', 'pisaR', 'pisaS', 'imo', 'nobel', 'fields', 'qs', 'arwu', 'rd', 'res', 'spend', 'tert', 'mean', 'ptr', 'intl'].map(k => kp(k, k.startsWith('pisa') && p ? ` (${p.y})` : '')).join('')}</div>
+  ${DATA.pisaNotes[id] ? `<p class="note" style="color:var(--ink3);font-size:13px">${esc(DATA.pisaNotes[id])}</p>` : ''}
+  <div class="grid g2" style="margin-top:16px">
+    ${math ? `<div class="card"><div class="exh">Trajectoire PISA mathématiques</div><h3>${esc(c.name)} face à la moyenne OCDE</h3><div class="chart">${lines(years, [{ id, vals: math, color: 'var(--accent)' }, { id: 'OECD', vals: DATA.pisaMathTrend.OECD, cls: 'oecd', label: 'OCDE' }], { min: 340, max: 620, h: 300 })}</div></div>` : `<div class="card"><h3>PISA</h3><p class="sub">${esc(DATA.pisaNotes[id] || 'Pas de série PISA disponible.')}</p></div>`}
+    <div class="card"><div class="exh">Palmarès</div><h3>Distinctions et contributions</h3>
+      ${flist.length ? `<p style="margin:6px 0"><b>Médailles Fields (${flist.length})</b> : ${flist.map(f => `${esc(f.n)} (${f.y})`).join(', ')}</p>` : '<p style="margin:6px 0;color:var(--ink3)">Aucune médaille Fields.</p>'}
+      ${nl.length ? `<p style="margin:6px 0"><b>Prix Nobel récents</b> : ${nl.map(n => `${n.year}, ${esc(n.field.toLowerCase())} : ${esc(n.names)}`).join(' · ')}</p>` : ''}
+      ${vl.length ? `<p style="margin:6px 0"><b>Vaccins</b> : ${vl.map(v => `${esc(v.name)} (${v.y}, ${esc(v.who)})`).join(' · ')}</p>` : ''}
+      <p style="margin:6px 0"><b>Université phare</b> : ${esc(DATA.uni[id].best)}</p>
+      <p style="margin:6px 0"><b>Olympiades 2025</b> : ${DATA.imo2025[id] ? `${DATA.imo2025[id].rank}e mondial, ${DATA.imo2025[id].score} points, ${DATA.imo2025[id].g} or, ${DATA.imo2025[id].s} argent, ${DATA.imo2025[id].b} bronze` : 'non participant'}</p>
+      <div class="ftr" style="margin-top:12px"><button class="btn pri" data-page="face" data-ff="${id}">Comparer ce pays</button><button class="btn" data-page="donnees">Voir toutes les données</button></div></div>
+  </div>`;
+};
+
+/* 12. Données */
+R.donnees = () => {
+  const cols = [{ k: 'id', l: 'Pays', render: v => cty(v), csv: r => nameOf(r.id) }].concat(IND.map(i => ({ k: i.k, l: i.l + (i.u ? ` (${i.u})` : ''), num: 1, d: i.d })));
+  const rows = IDS.map(id => { const r = { id }; IND.forEach(i => r[i.k] = i.get(id)); return r; });
+  return `
+  <div class="ph"><div class="kicker">Jeu de données complet</div><h1>Données : 19 pays, ${IND.length} indicateurs</h1><p>Tout ce que l’application utilise, triable colonne par colonne et exportable en CSV (séparateur point-virgule, compatible Excel en français).</p></div>
+  <div class="controls"><button class="btn pri" id="csv">Exporter en CSV</button><span class="lbl">Cliquez sur un en-tête pour trier.</span></div>
+  <div class="card">${table(cols, rows)}</div>`;
+};
+
+/* 13. Sources */
+R.sources = () => `
+  <div class="ph"><div class="kicker">Méthode, sources, limites</div><h1>Sources et méthode</h1><p>Chaque chiffre de l’application vient d’une source publique identifiée ci-dessous. Les limites sont dites telles qu’elles sont.</p></div>
+  <div class="src">
+    <div class="it"><b>PISA 2022 et 2018</b><p>OCDE, PISA 2022 Results (Volume I), décembre 2023, et PISA 2018 Results (Volume I). Scores moyens nationaux en mathématiques, compréhension de l’écrit et sciences. Séries historiques 2000 à 2022 issues des mêmes rapports. La Chine est représentée par des échantillons régionaux, non par le pays entier ; l’Inde n’a participé qu’en 2009 (deux États) ; l’Afrique du Sud ne participe pas.</p><span class="m">oecd.org/pisa</span></div>
+    <div class="it"><b>Olympiades internationales de mathématiques 2025</b><p>Résultats officiels par équipe de la 66e IMO (Sunshine Coast, Australie, juillet 2025) : score sur 252 et médailles. La Russie n’est pas invitée depuis 2022.</p><span class="m">imo-official.org/results/team/year/2025</span></div>
+    <div class="it"><b>Prix Nobel</b><p>Fondation Nobel et listes de lauréats par nationalité (1901 à 2025). Comptage par nationalité déclarée ; une double nationalité compte pour chaque pays, d’où des totaux qui peuvent dépasser le nombre de prix décernés. Le prix de la Banque de Suède en sciences économiques est inclus. Lauréats 2020 à 2025 vérifiés sur nobelprize.org.</p><span class="m">nobelprize.org</span></div>
+    <div class="it"><b>Médaille Fields</b><p>Union mathématique internationale, liste complète 1936 à 2026 (l’édition 2026 a été annoncée le 23 juillet 2026). Nationalité au moment du prix telle que documentée par l’IMU et les encyclopédies de référence ; les doubles nationalités sont comptées pour chaque pays.</p><span class="m">mathunion.org/imu-awards/fields-medal</span></div>
+    <div class="it"><b>Classements d’universités</b><p>QS World University Rankings 2027 (publié le 18 juin 2026, 1 504 établissements) : comptage du top 100 effectué sur la liste publiée. Times Higher Education World University Rankings 2026 (octobre 2025, 2 191 établissements) : comptes États-Unis (35), Chine (7) et Corée (4) publiés par THE, autres pays reconstitués à partir de la liste. Classement de Shanghai ARWU 2026 (août 2026) : comptes du top 100 publiés (États-Unis 37, Chine 16, Royaume-Uni 8, Australie 5, France 4, Allemagne 4, Canada 3), Japon et Corée reconstitués.</p><span class="m">topuniversities.com · timeshighereducation.com · shanghairanking.com</span></div>
+    <div class="it"><b>Recherche</b><p>Dépense intérieure brute de R&D en % du PIB : OCDE (Main Science and Technology Indicators) et Institut de statistique de l’UNESCO, année 2022 ou 2023. Chercheurs par million d’habitants : UNESCO, dernière année disponible, arrondis à la centaine.</p><span class="m">oecd.org/sti · uis.unesco.org</span></div>
+    <div class="it"><b>Financement et accès</b><p>Dépense publique d’éducation en % du PIB : Banque mondiale et UNESCO (dernière année disponible, 2020 à 2023 selon le pays). Diplômés du supérieur parmi les 25-34 ans : OCDE, Regards sur l’éducation 2025, estimations UNESCO pour les pays non membres et non partenaires (Chine, Inde, Indonésie, Arabie saoudite, Russie) arrondies à l’unité. Durées moyenne et attendue de scolarisation : PNUD, Rapport sur le développement humain 2025. Élèves par enseignant : UNESCO et OCDE. Étudiants internationaux : UNESCO, IIE Open Doors, Campus France, ordre de grandeur 2023.</p><span class="m">data.worldbank.org · oecd.org/education · hdr.undp.org</span></div>
+    <div class="it"><b>Vaccins</b><p>Frise établie à partir des historiques de l’OMS, de l’Institut Pasteur, des CDC et des annonces des laboratoires. Le pays retenu est celui de la découverte ou du développement principal ; les productions sous licence sont signalées comme telles.</p><span class="m">who.int · pasteur.fr · cdc.gov</span></div>
+    <div class="it"><b>Population</b><p>Nations unies, World Population Prospects 2024, en millions, utilisée pour tous les ratios par habitant.</p><span class="m">population.un.org</span></div>
+    <div class="it"><b>Indice Savoir G20</b><p>Six piliers : moyenne PISA des trois domaines (dernier cycle participé), prix Nobel pour 10 millions d’habitants, médailles Fields, présences cumulées dans les trois top 100, R&D en % du PIB, diplômés du supérieur. Chaque pilier est normalisé entre 0 et 100 par min-max sur les 19 pays ; les comptes de prix et d’universités passent d’abord par log10(1 + x) pour éviter qu’un pays n’écrase les autres. La note est la moyenne pondérée des piliers disponibles ; les poids sont réglables et mémorisés dans votre navigateur. Un pilier absent n’est ni pénalisé ni compensé. C’est une convention de lecture, pas une vérité : changez les poids et regardez ce qui bouge.</p></div>
+    <div class="it"><b>Limites</b><p>PISA ne couvre pas quatre pays du G20 et ne mesure que les élèves de 15 ans scolarisés. Les prix Nobel reflètent le XXe siècle autant que le présent. Les classements d’universités favorisent les établissements anglophones et les grandes tailles. Les données de financement ne sont pas toutes de la même année. Aucun indicateur n’est corrigé de la richesse du pays.</p></div>
+  </div>`;
+
+/* Routage, thème et événements */
+function applyTheme() {
+  const t = state.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = t;
+  $('#themeBtn').innerHTML = t === 'dark' ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+}
+function go(page, opts = {}) {
+  if (!R[page]) page = 'apercu';
+  state.page = page;
+  if (opts.hi) { state.hi = opts.hi; persist(); }
+  $$('.nav button').forEach(b => b.classList.toggle('on', b.dataset.page === page));
+  const main = $('main'); main.innerHTML = `<section class="page on">${R[page]()}</section>`;
+  bind(main);
+  const hash = page === 'pays' ? `#pays=${state.hi}` : `#${page}`;
+  if (location.hash !== hash) history.replaceState(null, '', hash);
+  if (!opts.keepScroll) window.scrollTo({ top: 0 });
+  document.title = `${PAGES.find(p => p.id === page).l} · Atlas Éducation G20`;
+  requestAnimationFrame(() => $('.nav button.on')?.scrollIntoView({ inline: 'center', block: 'nearest' }));
+}
+function rerender() { go(state.page, { keepScroll: true }); }
+function bind(root) {
+  bindTips(root);
+  $('#hiSel', root)?.addEventListener('change', e => { state.hi = e.target.value; persist(); rerender(); });
+  $$('[data-go]', root).forEach(el => el.addEventListener('click', e => { e.preventDefault(); go('pays', { hi: el.dataset.go }); }));
+  $$('[data-page]', root).forEach(el => el.addEventListener('click', () => { if (el.dataset.ff && !state.ff.includes(el.dataset.ff)) { state.ff = [el.dataset.ff, ...state.ff].slice(0, 4); persist(); } go(el.dataset.page); }));
+  // PISA
+  $$('#pisaDom button', root).forEach(b => b.addEventListener('click', () => { state.pisa.dom = b.dataset.v; rerender(); }));
+  $$('#pisaYear button', root).forEach(b => b.addEventListener('click', () => { state.pisa.year = +b.dataset.v; rerender(); }));
+  $('#pisaRefs', root)?.addEventListener('change', e => { state.pisa.refs = e.target.checked; rerender(); });
+  // Trajectoires
+  $$('#trajDom button', root).forEach(b => b.addEventListener('click', () => { state.traj.dom = b.dataset.v; persist(); rerender(); }));
+  $$('#trajChips .chip', root).forEach(ch => ch.addEventListener('click', () => { const id = ch.dataset.id, i = state.traj.sel.indexOf(id); if (i >= 0) state.traj.sel.splice(i, 1); else { if (state.traj.sel.length >= 8) state.traj.sel.shift(); state.traj.sel.push(id); } persist(); rerender(); }));
+  // Poids
+  $$('#wgt input', root).forEach(inp => inp.addEventListener('input', () => { state.weights[inp.dataset.w] = +inp.value; inp.nextElementSibling.textContent = inp.value + ' %'; persist(); clearTimeout(bind._t); bind._t = setTimeout(rerender, 250); }));
+  // Face à face
+  $$('#ffSel select', root).forEach(s => s.addEventListener('change', () => { state.ff[+s.dataset.i] = s.value; persist(); rerender(); }));
+  $$('#ffSel [data-rm]', root).forEach(b => b.addEventListener('click', () => { state.ff.splice(+b.dataset.rm, 1); persist(); rerender(); }));
+  $('#ffAdd', root)?.addEventListener('click', () => { const nxt = IDS.find(id => !state.ff.includes(id)); state.ff.push(nxt); persist(); rerender(); });
+  // Tableaux
+  bindTable(root, rerender);
+  $('#csv', root)?.addEventListener('click', () => { const cols = [{ k: 'id', l: 'Pays', csv: r => nameOf(r.id) }].concat(IND.map(i => ({ k: i.k, l: i.l + (i.u ? ` (${i.u})` : ''), csv: r => r[i.k] == null ? '' : String(r[i.k]).replace('.', ',') }))); const rows = IDS.map(id => { const r = { id }; IND.forEach(i => r[i.k] = i.get(id)); return r; }); download('atlas-education-g20.csv', toCSV(cols, rows)); });
+}
+function route() {
+  const h = location.hash.slice(1);
+  if (h.startsWith('pays=')) { const id = h.slice(5); if (C[id]) return go('pays', { hi: id }); }
+  go(h || 'apercu');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  $('.nav').innerHTML = PAGES.map(p => `<button data-page="${p.id}">${p.l}</button>`).join('');
+  $$('.nav button').forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
+  $('#themeBtn').addEventListener('click', () => { state.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'; persist(); applyTheme(); });
+  $('#shareBtn').addEventListener('click', async () => { const url = location.href; try { if (navigator.share) await navigator.share({ title: document.title, url }); else { await navigator.clipboard.writeText(url); $('#shareBtn').title = 'Lien copié'; } } catch (e) { } });
+  applyTheme();
+  window.addEventListener('hashchange', route);
+  document.addEventListener('keydown', e => { if (e.target.matches('input,select,textarea')) return; const i = PAGES.findIndex(p => p.id === state.page); if (e.key === 'ArrowRight' && i < PAGES.length - 1) go(PAGES[i + 1].id); if (e.key === 'ArrowLeft' && i > 0) go(PAGES[i - 1].id); });
+  route();
+  let lastM = MOB(); window.addEventListener('resize', () => { if (MOB() !== lastM) { lastM = MOB(); rerender(); } });
+});
+
+</script>
+</body>
+</html>
